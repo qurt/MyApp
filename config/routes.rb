@@ -2,7 +2,7 @@ MyApp::Application.routes.draw do
   controller :login do
     get 'login' => :new
     post 'login' => :create
-    delete 'logout' => :destroy
+    delete 'login' => :destroy
   end
 
   get 'feed/index'
