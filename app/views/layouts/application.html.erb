@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MyApp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="wrapper">
+  <div id="header">
+    <div id="header-wrapper">
+      <div id="main-menu">
+        <div class="main-menu-item"><a href="/">Гавная</a></div>
+        <div class="main-menu-item"><a href="/tasks">Задачи</a></div>
+        <div class="main-menu-item"><a href="/projects">Проекты</a></div>
+      </div>
+      <div id="user-info-box">
+        <div class="user-info-text">
+          <%= current_user() %>
+          <%= link_to 'Выйти', login_url, method: :delete %>
+        </div>
+        <div class="user-info-img"></div>
+      </div>
+    </div>
+  </div>
+  <div id="body-wrapper"><%= yield %></div>
+</div>
+<div id="footer"></div>
+</body>
+</html>

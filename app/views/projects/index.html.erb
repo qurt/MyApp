@@ -1,0 +1,13 @@
+<div id="top_add_button"><%= link_to 'Новый проект', new_project_path %></div>
+<div class="project_list">
+<% @projects.each do |project| %>
+<div class="project_item">
+  <div class="project_title"><%= link_to project.name, project %></div>
+  <% if project.owner_id == @user_id %>
+  <div class="project_control">
+    <%= link_to 'Edit', edit_project_path(project) %> | <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+  <% end %>
+</div>
+<% end %>
+</div>

@@ -1,0 +1,12 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<% @projects.each do |project| %>
+  <% if project.tasks.count > 0 %>
+  <div class="project-box">
+    <div class="project-box-title"><%=project.name%></div>
+    <% @tasks = project.tasks %>
+    <%= render 'task' %>
+  </div>
+  <% end %>
+<% end %>

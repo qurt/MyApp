@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<div class="project_name"><%= @project.name %></div>
+<div class="project_users">
+  <% @project.users.each do |user| %>
+  <p><%= user.login %></p>
+  <% end %>
+</div>
+<% if @project.owner_id == session[:user_id] %>
+  <%= link_to 'Edit', edit_project_path(@project) %> |
+<% end %>
+<%= link_to 'Back', projects_path %>
