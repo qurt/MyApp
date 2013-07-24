@@ -22,7 +22,7 @@ class LoginController < ApplicationController
       end
     end
     flash[:error] = error
-    redirect_to root_url
+    redirect_to login_url
   end
 
   def destroy
