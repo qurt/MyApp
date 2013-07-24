@@ -13,12 +13,9 @@
 
   <div class="field">
     <%= f.label :project_id %><br />
-    <%= f.number_field :project_id %>
+    <%= select_tag(:project_id, options_for_select(getSelectProjectList())) %>
   </div>
-  <div class="field">
-    <%= f.label :owner_id %><br />
-    <%= f.number_field :owner_id %>
-  </div>
+  <%= hidden_field_tag('task[owner_id]', session[:user_id]) %>
   <div class="field">
     <%= f.label :performer_id %><br />
     <%= f.number_field :performer_id %>
