@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="error-message"><%= flash[:error] %></div>
 <div id="wrapper">
   <%= yield %>
 </div>
