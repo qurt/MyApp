@@ -1,27 +1,15 @@
 <p id="notice"><%= notice %></p>
+<div class="task_project_name"><%= @task.project.name %> -> <%= @task.title %></div>
 
 <p>
-  <b>Project:</b>
-  <%= @task.project.name %>
+  <b>Исполнители:</b>
+  <% @task.users.each do |user| %>
+    <p><%= user.name %></p>
+  <% end %>
 </p>
 
 <p>
-  <b>Owner:</b>
-  <%= @task.owner_id %>
-</p>
-
-<p>
-  <b>Performer:</b>
-  <%= @task.users %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @task.title %>
-</p>
-
-<p>
-  <b>Content:</b>
+  <b>Описание:</b>
   <%= @task.content %>
 </p>
 
