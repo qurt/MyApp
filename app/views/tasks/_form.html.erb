@@ -13,12 +13,19 @@
 
   <div class="field">
     <%= f.label :project_id %><br />
-    <%= select_tag(:project_id, options_for_select(getSelectProjectList())) %>
+    <%= select_tag('task[project_id]', options_for_select(getSelectProjectList())) %>
   </div>
   <%= hidden_field_tag('task[owner_id]', session[:user_id]) %>
   <div class="field">
     <%= f.label :performer_id %><br />
-    <%= f.number_field :performer_id %>
+    <% @users.each do |user| %>
+    <% checked = false %>
+    <% if @task.users.find_by_id(user.id) %>
+      <% checked = true %> 
+    <% end %>
+    <%= check_box_tag('users[]', user.id, checked) %>
+    <%= label_tag('users', user.name) %>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :title %><br />
@@ -29,12 +36,8 @@
     <%= f.text_area :content %>
   </div>
   <div class="field">
-    <%= f.label :active %><br />
+    <%= f.label :active %>
     <%= f.check_box :active %>
-  </div>
-  <div class="field">
-    <%= f.label :publish %><br />
-    <%= f.datetime_select :publish %>
   </div>
   <div class="actions">
     <%= f.submit %>

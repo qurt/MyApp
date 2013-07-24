@@ -8,7 +8,6 @@
     <th>Title</th>
     <th>Content</th>
     <th>Active</th>
-    <th>Publish</th>
     <th></th>
     <th></th>
     <th></th>
@@ -18,11 +17,10 @@
   <tr>
     <td><%= task.project_id %></td>
     <td><%= task.owner_id %></td>
-    <td><%= task.performer_id %></td>
+    <td><%= task.users %></td>
     <td><%= task.title %></td>
     <td><%= task.content %></td>
     <td><%= task.active %></td>
-    <td><%= task.publish %></td>
     <td><%= link_to 'Show', task %></td>
     <td><%= link_to 'Edit', edit_task_path(task) %></td>
     <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>

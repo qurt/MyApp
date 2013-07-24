@@ -25,6 +25,7 @@ class TasksController < ApplicationController
   # GET /tasks/new.json
   def new
     @task = Task.new
+    @users = User.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +36,20 @@ class TasksController < ApplicationController
   # GET /tasks/1/edit
   def edit
     @task = Task.find(params[:id])
+    @users = User.all
   end
 
   # POST /tasks
   # POST /tasks.json
   def create
     @task = Task.new(params[:task])
+    users_list = params[:users]
+    if users_list
+      users_list.each do |item|
+        user_to_add = User.find_by_id(item)
+        @task.users << user_to_add
+      end
+    end
 
     respond_to do |format|
       if @task.save
@@ -57,6 +66,16 @@ class TasksController < ApplicationController
   # PUT /tasks/1.json
   def update
     @task = Task.find(params[:id])
+    @task.users.clear
+    users_list = params[:users]
+    if users_list
+      users_list.each do |item|
+        if !@task.users.find_by_id(item)
+          user_to_add = User.find_by_id(item)
+          @task.users << user_to_add
+        end
+      end
+    end
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
