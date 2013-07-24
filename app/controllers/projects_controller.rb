@@ -73,7 +73,6 @@ class ProjectsController < ApplicationController
   # PUT /projects/1.json
   def update
     @project = Project.find(params[:id])
-    @users = User.all
     @project.users.clear
     users_list = params[:users]
     if users_list
