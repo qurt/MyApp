@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
   attr_accessible :active, :content, :owner_id, :performer_id, :project_id, :publish, :title
   belongs_to :project
-  has_and_belongs_to_many :users, :foreign_key => 'performer_id'
+  has_and_belongs_to_many :users, :association_foreign_key => :user_id
 end
