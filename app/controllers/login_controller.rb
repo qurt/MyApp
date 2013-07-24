@@ -17,6 +17,7 @@ class LoginController < ApplicationController
       user = User.find_by_login(params[:login])
       if user and user.authenticate(params[:pass])
         session[:user_id] = user.id
+        redirect_to root_url and return
       else
         error = 'Wrong username or password'
       end
