@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :project_id %><br />
     <%= select_tag('task[project_id]', options_for_select(getSelectProjectList(), @task.project_id)) %>
