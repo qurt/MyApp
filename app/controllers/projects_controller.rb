@@ -51,9 +51,11 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params[:project])
     users_list = params[:users]
-    users_list.each do |item|
-      user_to_add = User.find_by_id(item)
-      @project.users << user_to_add
+    if users_list
+      users_list.each do |item|
+        user_to_add = User.find_by_id(item)
+        @project.users << user_to_add
+      end
     end
 
     respond_to do |format|
@@ -72,11 +74,14 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     @users = User.all
+    @project.users.clear
     users_list = params[:users]
-    users_list.each do |item|
-      if !@project.users.find_by_id(item)
-        user_to_add = User.find_by_id(item)
-        @project.users << user_to_add
+    if users_list
+      users_list.each do |item|
+        if !@project.users.find_by_id(item)
+          user_to_add = User.find_by_id(item)
+          @project.users << user_to_add
+        end
       end
     end
 
