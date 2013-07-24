@@ -30,6 +30,7 @@
   <%= @task.active %>
 </p>
 
-
+<% if @task.owner_id == session[:user_id] %>
 <%= link_to 'Edit', edit_task_path(@task) %> |
+<% end %>
 <%= link_to 'Back', tasks_path %>
