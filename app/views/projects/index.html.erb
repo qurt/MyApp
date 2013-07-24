@@ -5,7 +5,7 @@
   <div class="project_title"><%= link_to project.name, project %></div>
   <% if project.owner_id == @user_id %>
   <div class="project_control">
-    <%= link_to 'Edit', edit_project_path(project) %> | <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Редактировать', edit_project_path(project) %> | <%= link_to 'Удалить', project, method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
   <% end %>
 </div>
