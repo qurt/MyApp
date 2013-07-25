@@ -17,6 +17,16 @@
   <b>Active:</b>
   <%= @task.active %>
 </p>
+<p>
+  <b>Подзадачи</b> <br />
+  <% @task.subtasks.each do |subtask| %>
+    <% checked = false %>
+    <% if subtask.active == false %>
+      <% checked = true %>
+    <% end %>
+    <%= check_box_tag('subtask', subtask.id, checked) %><%= label_tag('subtask', subtask.title) %> <br />
+  <% end %>
+</p>
 
 <% if @task.owner_id == session[:user_id] %>
 <%= link_to 'Edit', edit_task_path(@task) %> |

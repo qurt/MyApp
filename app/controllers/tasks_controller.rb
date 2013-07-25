@@ -50,6 +50,17 @@ class TasksController < ApplicationController
         @task.users << user_to_add
       end
     end
+    sub_tasks = params[:subtask_title]
+    if sub_tasks
+      sub_tasks.each do |sub_task|
+        if sub_task != ''
+          sub = Subtask.new
+          sub.title = sub_task
+          sub.user_id = 0
+          @task.subtasks << sub
+        end
+      end
+    end
 
     respond_to do |format|
       if @task.save
@@ -67,6 +78,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @task.users.clear
+    @task.subtasks.clear
     users_list = params[:users]
     if users_list
       users_list.each do |item|
@@ -76,6 +88,18 @@ class TasksController < ApplicationController
         end
       end
     end
+    sub_tasks = params[:subtask_title]
+    if sub_tasks
+      sub_tasks.each do |sub_task|
+        if sub_task != ''
+          sub = Subtask.new
+          sub.title = sub_task
+          sub.user_id = 0
+          @task.subtasks << sub
+        end
+      end
+    end
+
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
