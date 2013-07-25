@@ -47,7 +47,16 @@ MyApp::Application.configure do
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
    config.assets.precompile += %w( login.css )
+   config.assets.precompile += %w( feed.css )
+   config.assets.precompile += %w( projects.css )
+   config.assets.precompile += %w( scaffolds.css )
+   config.assets.precompile += %w( tasks.css )
+   config.assets.precompile += %w( users.css )
    config.assets.precompile += %w( login.js )
+   config.assets.precompile += %w( feed.js )
+   config.assets.precompile += %w( projects.js )
+   config.assets.precompile += %w( tasks.js )
+   config.assets.precompile += %w( users.js )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
