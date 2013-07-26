@@ -5,6 +5,7 @@
   <% if project.tasks.count > 0 %>
   <div class="project-box">
     <div class="project-box-title"><%=project.name%></div>
+    <div class="project-arrow-down"></div>
     <% @tasks = project.tasks %>
     <%= render 'task' %>
   </div>

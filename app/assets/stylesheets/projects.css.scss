@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #top_add_button {
 	position: relative;
-	background: #FF9000;
+	background: #FF9900;
 	width: 200px;
 	height: 45px;
 	line-height: 45px;
@@ -34,14 +34,20 @@
 			height: 45px;
 			line-height: 45px;
 			padding-left: 10px;
-			background: #c2c2c2;
+			background: #e9e9e9;
 		}
 		.project_control {
 			position: relative;
 			margin-left: 700px;
-			width: 300px;
+      padding-left: 10px;
+			width: 290px;
 			height: 45px;
 			line-height: 45px;
+      background: #bcbcbc;
+      
+      a {
+        font-weight: bold;
+      }
 		}
 	}
 

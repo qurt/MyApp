@@ -36,44 +36,45 @@ body {
 #header {
     position: relative;
     width: 100%;
-    background: url('bg.png');
-    height: 90px;
+    background: #424242;
+    height: 80px;
     color: #fff;
 }
 #header-wrapper {
     position: relative;
     width: 1000px;
-    height: 90px;
+    height: 80px;
     margin: 0 auto;
 }
 #main-menu {
     position: relative;
     width: 800px;
-    height: 80px;
+    height: 40px;
     float: left;
     color: #111;
-    padding-top: 10px;
+    padding-top: 20px;
+}
+#main-menu :first-child {
+  margin-left: 0;
 }
 .main-menu-item {
     position: relative;
     text-align: center;
     display: inline-block;
-    margin: 0 5px;
+    margin: 0 10px;
     padding: 0 15px;
     height: 40px;
     line-height: 40px;
-    background-color: #FF9000;
+    background-color: #FF9900;
+  text-transform: uppercase;
 }
 .main-menu-item a {
-    color: #111;
+    color: #424242;
     font-weight: bold;
     text-decoration: none;
     display: block;
     width: 100%;
     height: 100%;
-}
-.main-menu-item:hover {
-    background-color: #cc0000;
 }
 #user-info-box {
     position: relative;
@@ -81,7 +82,7 @@ body {
     width: 198px;
     border-left: 2px dotted #c2c2c2;
     padding-top: 15px;
-    height: 75px;
+    height: 65px;
 }
 .user-info-img {
     position: relative;
