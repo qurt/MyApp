@@ -67,8 +67,9 @@ body {
     background-color: #FF9900;
   text-transform: uppercase;
   font-size: 10pt;
+  cursor: pointer;
 }
-.main-menu-item a {
+.main-menu-item div {
     display: block;
     width: 100%;
     height: 100%;
