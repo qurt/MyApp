@@ -1,17 +1,27 @@
+<% if notice %>
 <p id="notice"><%= notice %></p>
-<div class="task_project_name"><%= @task.project.name %> -> <%= @task.title %></div>
-
-<p>
-  <b>Исполнители:</b>
-  <% @task.users.each do |user| %>
+<% end %>
+<div class="task_project_name"><%= @task.project.name %></div><div class="task_right_arrow"></div><div class="task_title"><%= @task.title %></div>
+<div style="clear:both; margin-bottom: 10px;"></div>
+<div class="field_wrapper">
+  <div class="field_title">
+    <% if @task.users.count > 1 %>
+    Исполнители:
+    <% else %>
+    Исполнитель
+    <% end %>
+  </div>
+  <div class="field_content">
+    <% @task.users.each do |user| %>
     <p><%= user.name %></p>
-  <% end %>
-</p>
+    <% end %>
+  </div>
+</div>
 
-<p>
-  <b>Описание:</b>
+<div class="field_wrapper">
+  <div class="field_title">Описание:</div>
   <%= @task.content %>
-</p>
+</div>
 
 <p>
   <b>Active:</b>

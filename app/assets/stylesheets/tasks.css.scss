@@ -7,3 +7,32 @@
 	position: relative;
 	float: left;
 }
+.task_project_name {
+  position: relative;
+  float: left;
+  padding: 0 15px;
+  background-color: #3299bb;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+.task_right_arrow {
+  position: relative;
+  width: 0px;
+  height: 0px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #3299bb;
+  top: 11px;
+  float: left;
+  z-index: 1;
+}
+.task_title {
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+  background-color: #c2c2c2;
+  float: left;
+  margin-left: -10px;
+}
