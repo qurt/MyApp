@@ -143,9 +143,9 @@ body {
     background-color: transparent;
 }
 #footer {
-    margin: -45px auto 0;
+    margin: -40px auto 0;
     width: 100%;
-    height: 45px;
-    background: url('bg.png');
+    height: 40px;
+    background: #424242;
     position: relative;
 }
