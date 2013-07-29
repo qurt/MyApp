@@ -12,7 +12,11 @@
   <% end %>
   <div class="field">
     <%= f.label :project_id %><br />
-    <%= select_tag('task[project_id]', options_for_select(getSelectProjectList(), @task.project_id)) %>
+    <% project_id = @task.project_id %>
+    <% if params[:project_id] %>
+    <% project_id = params[:project_id].to_i %>
+    <% end %>
+    <%= select_tag('task[project_id]', options_for_select(getSelectProjectList(), project_id)) %>
   </div>
   <%= hidden_field_tag('task[owner_id]', session[:user_id]) %>
   <div class="field">

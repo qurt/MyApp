@@ -5,6 +5,7 @@
   <% if project.tasks.count > 0 %>
   <div class="project-box">
     <div class="project-box-title"><%=project.name%></div>
+    <div class="add_button"><a href="/tasks/new/<%= project.id %>"><%= image_tag 'icons/add.png' %></a></div>
     <div class="project-arrow-down"></div>
     <% @tasks = project.tasks %>
     <%= render 'task' %>
