@@ -52,7 +52,7 @@ body {
     height: 40px;
     float: left;
     color: #111;
-    padding-top: 20px;
+    padding-top: 15px;
 }
 #main-menu :first-child {
   margin-left: 0;
@@ -62,19 +62,31 @@ body {
     text-align: center;
     display: inline-block;
     margin: 0 10px;
-    padding: 0 15px;
-    height: 40px;
-    line-height: 40px;
+  padding: 0 15px;
+    height: 50px;
     background-color: #FF9900;
   text-transform: uppercase;
+  font-size: 10pt;
 }
 .main-menu-item a {
-    color: #424242;
-    font-weight: bold;
-    text-decoration: none;
     display: block;
     width: 100%;
     height: 100%;
+  color: #424242;
+    font-weight: bold;
+    text-decoration: none;
+}
+.home-icon:before {
+  content: url('icons/home.png');
+}
+.task-icon:before {
+  content: url('icons/task.png');
+}
+.project-icon:before {
+  content: url('icons/project.png');
+}
+.users-icon:before {
+  content: url('icons/users.png');
 }
 #user-info-box {
     position: relative;
