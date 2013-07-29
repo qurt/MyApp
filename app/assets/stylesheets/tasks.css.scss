@@ -7,6 +7,23 @@
 	position: relative;
 	float: left;
 }
+.task_home {
+  position: relative;
+  float: left;
+  padding: 0 15px;
+  background-color: #ff9900;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  
+  a {
+    color: #424242;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
 .task_project_name {
   position: relative;
   float: left;
@@ -15,6 +32,15 @@
   height: 40px;
   line-height: 40px;
   text-align: center;
+  margin-left: -10px;
+  
+  a {
+    color: #424242;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 }
 .task_right_arrow {
   position: relative;
@@ -27,6 +53,9 @@
   float: left;
   z-index: 1;
 }
+.orange {
+  border-left: 10px solid #ff9900;
+}
 .task_title {
   position: relative;
   height: 40px;
@@ -35,4 +64,5 @@
   background-color: #c2c2c2;
   float: left;
   margin-left: -10px;
+  color: #424242;
 }
