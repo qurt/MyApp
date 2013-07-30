@@ -1,8 +1,6 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-<div class="task_home"><%= link_to 'Главная', root_url  %></div>
-<div class="task_right_arrow orange"></div>
 <div class="task_project_name"><%= link_to @task.project.name, @task.project %></div>
 <div class="task_right_arrow"></div>
 <div class="task_title"><%= @task.title %></div>
