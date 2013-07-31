@@ -12,21 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label 'Название проекта' %><br />
     <%= f.text_field :name %>
   </div>
   <div class="users">
+    <%= label_tag 'Пользователи в проекте' %><br />
     <% @users.each do |user| %>
     <% checked = false %>
     <% if @project.users.find_by_id(user.id) %>
       <% checked = true %> 
     <% end %>
     <%= check_box_tag('users[]', user.id, checked) %>
-    <%= label_tag('users', user.login) %>
+    <%= user.login %>
     <% end %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Создать проект' %> <div class="button_back"><%= link_to 'Назад', projects_path %></div>
   </div>
   <%= hidden_field_tag('project[owner_id]', session[:user_id]) %>
 <% end %>
