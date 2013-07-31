@@ -11,7 +11,7 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :project_id %><br />
+    <%= f.label 'Проект' %><br />
     <% project_id = @task.project_id %>
     <% if params[:project_id] %>
     <% project_id = params[:project_id].to_i %>
@@ -20,27 +20,23 @@
   </div>
   <%= hidden_field_tag('task[owner_id]', session[:user_id]) %>
   <div class="field">
-    <%= f.label :performer_id %><br />
+    <%= f.label 'Исполнители' %><br />
     <% @users.each do |user| %>
     <% checked = false %>
     <% if @task.users.find_by_id(user.id) %>
       <% checked = true %> 
     <% end %>
     <%= check_box_tag('users[]', user.id, checked) %>
-    <%= label_tag('users', user.name) %>
+    <%= user.name %>
     <% end %>
   </div>
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label 'Название' %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :content %><br />
+    <%= f.label 'Подробное описание' %><br />
     <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= f.label :active %>
-    <%= f.check_box :active %>
   </div>
   <div class="field" id="subtasks_field">
     <%= label_tag('subtask_title', 'Подзадачи') %> <br />
@@ -54,6 +50,6 @@
   </div>
   <div id="add_new_subtask">Добавить</div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Создать задачу' %>
   </div>
 <% end %>
