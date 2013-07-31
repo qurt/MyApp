@@ -27,7 +27,7 @@
     <% end %>
   </div>
   <div class="actions">
-    <%= f.submit 'Создать проект' %> <div class="button_back"><%= link_to 'Назад', projects_path %></div>
+    <%= f.submit %> <div class="button_back"><%= link_to 'Назад', projects_path %></div>
   </div>
   <%= hidden_field_tag('project[owner_id]', session[:user_id]) %>
 <% end %>
