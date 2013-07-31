@@ -6,12 +6,13 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development do 
 	gem 'sqlite3'
+  gem 'rspec-rails', '~> 2.0.0'
 end
 group :production do 
 	gem 'pg'
 end
 group :test do 
-	gem 'pg'
+  gem 'sqlite3'
 end
 
 
