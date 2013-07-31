@@ -142,11 +142,3 @@ body {
     color: #cc0000;
     background-color: transparent;
 }
-#footer {
-    margin: -40px auto 0;
-    width: 100%;
-  min-width: 1000px;
-    height: 40px;
-    background: #424242;
-    position: relative;
-}
