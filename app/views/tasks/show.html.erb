@@ -27,7 +27,7 @@
   <%= @task.content %>
 </div>
 
-<p>
+<p> 
   <b>Active:</b>
   <%= @task.active %>
 </p>
@@ -41,7 +41,17 @@
     <%= check_box_tag('subtask', subtask.id, checked) %><%= label_tag('subtask', subtask.title) %> <br />
   <% end %>
 </p>
-
+<div class="discuss_box">
+  <div class="messages_list">
+    <% @task.discussions.each do |message| %>
+    <div class="item">
+      <div class="user_name"><%= message.user.name %></div>
+      <div class="date"><%= message.create_at %></div>
+      <div class="message"><%= message.message %></div>
+    </div>
+    <% end %>
+  </div>
+</div>
 <% if @task.owner_id == session[:user_id] %>
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <% end %>
