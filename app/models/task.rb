@@ -3,4 +3,5 @@ class Task < ActiveRecord::Base
   belongs_to :project
   has_and_belongs_to_many :users, :association_foreign_key => :user_id
   has_many :subtasks, dependent: :destroy, autosave: true
+  has_many :discussions, dependent: :destroy 
 end
