@@ -1,11 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<div class="project_name"><%= @project.name %></div>
-<div class="project_users">
-  <p>Пользоватили в проекте</p>
-  <% @project.users.each do |user| %>
-  <p><%= user.login %></p>
-  <% end %>
+<div id="page_title"><%= @project.name %></div>
+<div id="arrow_down"></div>
+<div id="project_box">
+	<div class="project_users">
+  		<p>Пользоватили в проекте</p>
+  		<% @project.users.each do |user| %>
+  		<p><%= user.name %></p>
+  		<% end %>
+	</div>
 </div>
 <% if @project.owner_id == session[:user_id] %>
   <%= link_to 'Редактировать', edit_project_path(@project) %> |
