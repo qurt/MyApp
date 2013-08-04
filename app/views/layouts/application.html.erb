@@ -14,9 +14,8 @@
     <div id="header-wrapper">
       <div id="main-menu">
         <div class="main-menu-item home-icon" onclick="javascript:window.location='/'"><div>Главная</div></div>
-        <div class="main-menu-item task-icon" onclick="javascript:window.location='/tasks'"><div>Задачи</div></div>
         <div class="main-menu-item project-icon" onclick="javascript:window.location='/projects'"><div>Проекты</div></div>
-        <div class="main-menu-item users-icon" onclick="javascript:window.location='/users'"><div>Пользователи</div></div>
+        <% if if_superuser() %><div class="main-menu-item users-icon" onclick="javascript:window.location='/users'"><div>Пользователи</div></div><% end %>
       </div>
       <div id="user-info-box">
         <div class="user-info-text">

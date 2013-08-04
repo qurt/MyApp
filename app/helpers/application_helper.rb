@@ -4,4 +4,12 @@ module ApplicationHelper
     user_name = user.name
     user_name
   end
+  def if_superuser
+    user = User.find(session[:user_id])
+    if user.superuser
+      return true
+    else
+      return false
+    end
+  end
 end
