@@ -1,12 +1,3 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
-<div class="task_project_name"><%= link_to @task.project.name, @task.project %></div>
-<div class="task_right_arrow"></div>
-<div class="task_title"><%= @task.title %></div>
-
-<div style="clear:both; margin-bottom: 10px;"></div>
-
 <div class="field_wrapper">
   <div class="field_title">
     <% if @task.users.count > 1 %>
