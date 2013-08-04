@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+
   <div class="field">
     <%= f.label 'Проект' %><br />
     <% project_id = @task.project_id %>
@@ -19,7 +20,7 @@
     <%= select_tag('task[project_id]', options_for_select(getSelectProjectList(), project_id)) %>
   </div>
   <%= hidden_field_tag('task[owner_id]', session[:user_id]) %>
-  <div class="field">
+  <div class="field users">
     <%= f.label 'Исполнители' %><br />
     <% @users.each do |user| %>
     <% checked = false %>
@@ -42,14 +43,19 @@
     <%= label_tag('subtask_title', 'Подзадачи') %> <br />
     <% if @task.subtasks.any? %>
       <% @task.subtasks.each do |subtask| %>
-        <div class="subtask_item"><%= text_field_tag('subtask_title[]', subtask.title) %><div class="delete_subtask">Удалить</div></div><div style="clear:both;"></div>
+        <div class="subtask_item">
+          <%= text_field_tag('subtask_title[]', subtask.title) %>
+          <div class="delete_subtask">Удалить</div>
+        </div>
+        <div style="clear:both;"></div>
       <% end %>
     <% end %>
     <%= text_field_tag('subtask_title[]') %>
     <div style="clear:both;"></div>
+    <div id="add_new_subtask">Добавить</div>
   </div>
-  <div id="add_new_subtask">Добавить</div>
   <div class="actions">
-    <%= f.submit 'Создать задачу' %>
+    <%= f.submit %>
+    <div class="button_back"><%= link_to 'Назад', feed_path %></div>
   </div>
 <% end %>

@@ -8,45 +8,80 @@
 	float: left;
 }
 //form
-
-.task_project_name {
+#page_title {
   position: relative;
-  float: left;
-  padding: 0 15px;
-  background-color: #3299bb;
+  width: 100%;
   height: 40px;
-  line-height: 40px;
   text-align: center;
-  
-  a {
-    color: #424242;
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
+  background: #3299bb;
+  font-weight: bold;
+  color: #fff;
+  line-height: 40px;
 }
-.task_right_arrow {
-  position: relative;
+#arrow_down {
   width: 0px;
   height: 0px;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid #3299bb;
-  top: 11px;
-  float: left;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 10px solid #3299bb;
+  margin: 0 auto;
+  margin-bottom: -10px;
   z-index: 1;
-}
-.orange {
-  border-left: 10px solid #ff9900;
-}
-.task_title {
   position: relative;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 15px;
-  background-color: #c2c2c2;
-  float: left;
-  margin-left: -10px;
-  color: #424242;
+}
+form {
+  position: relative;
+  background: #e9e9e9;
+  padding: 0 10px;
+
+  label {
+    font-weight: bold;
+  }
+  .field {
+    border-bottom: 1px dotted #c2c2c2;
+    min-height: 40px;
+    margin: 0;
+    padding: 10px 0;
+    overflow: auto;
+
+    #add_new_subtask {
+      position: relative;
+      background: #00dd44;
+      height: 30px;
+      padding: 0 10px;
+      cursor: pointer;
+      float: left;
+      line-height: 30px;
+      margin-top: 10px;
+    }
+  }
+  .actions {
+    margin: 0 auto;
+    width: 270px;
+
+    input {
+      float: left;
+      position: relative;
+      width: 120px;
+      height: 40px;
+      background: #ff9900;
+      border: none;
+      display: block;
+    }
+    .button_back {
+      position: relative;
+      margin-left: 150px;
+      width: 120px;
+      height: 40px;
+      line-height: 40px;
+      background: #ff9900;
+      text-align: center;
+
+      a {
+        color: #000;
+        text-decoration: none;
+        font: -webkit-small-control;
+      }
+    }
+  }
 }
