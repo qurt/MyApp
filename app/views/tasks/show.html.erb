@@ -1,3 +1,6 @@
+<div id="page_title"><%= @task.title %> (<%= @task.project.name %>)</div>
+<div  id="arrow_down"></div>
+
 <div class="field_wrapper">
   <div class="field_title">
     <% if @task.users.count > 1 %>
@@ -8,30 +11,29 @@
   </div>
   <div class="field_content">
     <% @task.users.each do |user| %>
-    <p><%= user.name %></p>
+    <div class="user_item"><%= user.name %></div>
     <% end %>
   </div>
 </div>
 
 <div class="field_wrapper">
   <div class="field_title">Описание:</div>
-  <%= @task.content %>
+  <div class="field_content"><%= @task.content %></div>
 </div>
 
-<p> 
-  <b>Active:</b>
-  <%= @task.active %>
-</p>
-<p>
-  <b>Подзадачи</b> <br />
-  <% @task.subtasks.each do |subtask| %>
-    <% checked = false %>
-    <% if subtask.active == false %>
-      <% checked = true %>
+<div class="field_wrapper">
+  <div class="field_title">Подзадачи</div>
+  <div class="field_content">
+    <% @task.subtasks.each do |subtask| %>
+        <% checked = false %>
+        <% unless subtask.active %>
+            <% checked = true %>
+        <% end %>
+        <%= check_box_tag('subtask', subtask.id, checked) %><%= label_tag('subtask', subtask.title) %> <br />
     <% end %>
-    <%= check_box_tag('subtask', subtask.id, checked) %><%= label_tag('subtask', subtask.title) %> <br />
-  <% end %>
-</p>
+  </div>
+</div>
+
 <div class="discuss_box">
   <div class="messages_list">
     <% @task.discussions.each do |message| %>
@@ -44,6 +46,6 @@
   </div>
 </div>
 <% if @task.owner_id == session[:user_id] %>
-<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Редактировать', edit_task_path(@task) %> |
 <% end %>
-<%= link_to 'Back', tasks_path %>
+<%= link_to 'Назад', tasks_path %>
