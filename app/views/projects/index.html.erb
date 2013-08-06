@@ -3,7 +3,7 @@
 <div class="project_list">
 <% @projects.each do |project| %>
 <div class="project_item">
-  <div class="project_title"><%= link_to project.name, project %></div>
+  <div class="project_title"><%= link_to project.name, project %> | Выполнено: <%=inactiveTaskCount(project.id)%> из <%=TaskCount(project.id)%></div>
   <% if project.owner_id == @user_id %>
   <div class="project_left_arrow"></div>
   <div class="project_control">
