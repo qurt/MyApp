@@ -1,4 +1,7 @@
 MyApp::Application.routes.draw do
+  resources :stages
+
+
   controller :login do
     get 'login' => :new
     post 'login' => :create
