@@ -26,28 +26,31 @@
 <div class="field_wrapper">
   <div class="field_title">Подзадачи</div>
   <div class="field_content">
-    <% @task.subtasks.each do |subtask| %>
-        <% checked = false %>
-        <% unless subtask.active %>
-            <% checked = true %>
-        <% end %>
-        <%= check_box_tag(subtask.id, subtask.id, checked) %><%= label_tag(subtask.id, subtask.title) %> <br />
-    <% end %>
+    <div class="subtask_box">
+      <% @task.subtasks.each do |subtask| %>
+          <% checked = false %>
+          <% unless subtask.active %>
+              <% checked = true %>
+          <% end %>
+          <div class="subtask_item"><%= check_box_tag(subtask.id, subtask.id, checked) %><%= label_tag(subtask.id, subtask.title) %></div>
+      <% end %>
+    </div>
   </div>
 </div>
 
-<div class="discuss_box">
-  <div class="messages_list">
-    <% @task.discussions.each do |message| %>
-    <div class="item">
-      <div class="user_name"><%= message.user.name %></div>
-      <div class="date"><%= message.create_at %></div>
-      <div class="message"><%= message.message %></div>
-    </div>
-    <% end %>
-  </div>
-</div>
 <% if @task.owner_id == session[:user_id] %>
 <%= link_to 'Редактировать', edit_task_path(@task) %> |
 <% end %>
 <%= link_to 'Назад', feed_path %> | <%= link_to 'Готово', "/tasks/complete/#{@task.id}" %> | <%= link_to 'Удалить', @task, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<div class="discuss_box">
+  <div class="messages_list">
+    <% @task.discussions.each do |message| %>
+        <div class="item">
+          <div class="user_name"><%= message.user.name %></div>
+          <div class="date"><%= message.create_at %></div>
+          <div class="message"><%= message.message %></div>
+        </div>
+    <% end %>
+  </div>
+</div>

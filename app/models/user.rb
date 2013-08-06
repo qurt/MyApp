@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :projects
   has_and_belongs_to_many :tasks, :association_foreign_key => :user_id
   has_many :discussions, dependent: :destroy
+  has_many :subtasks
 end
