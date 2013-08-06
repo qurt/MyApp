@@ -1,5 +1,4 @@
 <div id="page_title">
-  
   <%= @task.title %> (<%= @task.project.name %>)
 </div>
 <div  id="arrow_down"></div>
@@ -51,4 +50,4 @@
 <% if @task.owner_id == session[:user_id] %>
 <%= link_to 'Редактировать', edit_task_path(@task) %> |
 <% end %>
-<%= link_to 'Назад', feed_path %>
+<%= link_to 'Назад', feed_path %> | <%= link_to 'Готово', "/tasks/complete/#{@task.id}" %> | <%= link_to 'Удалить', @task, method: :delete, data: { confirm: 'Are you sure?' } %>

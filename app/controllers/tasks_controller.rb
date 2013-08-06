@@ -130,6 +130,6 @@ class TasksController < ApplicationController
     task = Task.find(params[:id])
     task.active = false
     task.save
-    render :json => {:error => 'none', :msg => 'Task complete!'}
+    redirect_to root_url
   end
 end

@@ -6,7 +6,7 @@
     <div class="project-box-title"><%= link_to project.name, project %></div>
     <div class="project-arrow-down"></div>
     <div class="project-box-new-item"><a href="tasks/new/<%= project.id %>">Добавить задачу</a></div>
-    <% @tasks = project.tasks %>
+    <% @tasks = project.tasks.find_all_by_active(true) %>
     <%= render 'task' %>
   </div>
 <% end %>

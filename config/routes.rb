@@ -11,7 +11,7 @@ MyApp::Application.routes.draw do
   get '/tasks/new/:project_id', to: 'tasks#new'
 
   resources :tasks
-
+  get '/tasks/complete/:id', to: 'tasks#complete'
 
   resources :projects
 

@@ -17,6 +17,24 @@
   font-weight: bold;
   color: #fff;
   line-height: 40px;
+
+  .left_buttons {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: 30px;
+    line-height: 30px;
+
+    .ready_button {
+      height: 30px;
+      background: #00dd44;
+      cursor: pointer;
+      padding: 0 10px;
+    }
+    .back_button {
+
+    }
+  }
 }
 #arrow_down {
   width: 0px;
