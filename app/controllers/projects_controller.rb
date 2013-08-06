@@ -3,10 +3,10 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Array.new
-    @user_id = session[:user_id]
+    user_id = session[:user_id]
     projects_list = Project.all
     projects_list.each do |item|
-      if item.users.where('user_id = ?', @user_id)
+      if item.users.find_by_id(user_id)
         @projects << item
       end
     end
