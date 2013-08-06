@@ -41,17 +41,21 @@
   </div>
   <div class="field" id="subtasks_field">
     <%= label_tag('subtask_title', 'Подзадачи') %> <br />
+    <div class="subtask_item_box">
     <% if @task.subtasks.any? %>
       <% @task.subtasks.each do |subtask| %>
         <div class="subtask_item">
           <%= text_field_tag('subtask_title[]', subtask.title) %>
-          <div class="delete_subtask">Удалить</div>
+          
         </div>
+        <div class="delete_subtask">Удалить</div>
         <div style="clear:both;"></div>
       <% end %>
     <% end %>
     <%= text_field_tag('subtask_title[]') %>
     <div style="clear:both;"></div>
+    </div>
+    
     <div id="add_new_subtask">Добавить</div>
   </div>
   <div class="actions">

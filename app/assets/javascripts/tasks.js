@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$('#add_new_subtask').click(function() {
-		$('#subtasks_field').append('<br /><input id="subtask_title_" name="subtask_title[]" type="text">');
+		$('.subtask_item_box').append('<div class="subtask_item"><input id="subtask_title_" name="subtask_title[]" type="text"></div><div style="clear: both"></div>');
 	});
 	$('.delete_subtask').click(function() {
 		$(this).parent().remove();

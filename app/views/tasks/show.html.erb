@@ -29,7 +29,7 @@
         <% unless subtask.active %>
             <% checked = true %>
         <% end %>
-        <%= check_box_tag('subtask', subtask.id, checked) %><%= label_tag('subtask', subtask.title) %> <br />
+        <%= check_box_tag(subtask.id, subtask.id, checked) %><%= label_tag(subtask.id, subtask.title) %> <br />
     <% end %>
   </div>
 </div>
