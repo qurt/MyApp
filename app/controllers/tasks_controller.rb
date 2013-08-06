@@ -25,7 +25,8 @@ class TasksController < ApplicationController
   # GET /tasks/new.json
   def new
     @task = Task.new
-    @users = User.all
+    project = Project.find(params[:project_id])
+    @users = project.users
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,7 +37,8 @@ class TasksController < ApplicationController
   # GET /tasks/1/edit
   def edit
     @task = Task.find(params[:id])
-    @users = User.all
+    project = Project.find(params[:project_id])
+    @users = project.users
   end
 
   # POST /tasks
