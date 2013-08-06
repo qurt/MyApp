@@ -1,12 +1,12 @@
 <div id="page_title"><%= @project.name %></div>
 <div id="arrow_down"></div>
-<div id="project_box">
-	<div class="project_users">
-  		<p>Пользоватили в проекте</p>
-  		<% @project.users.each do |user| %>
-  		<p><%= user.name %></p>
-  		<% end %>
-	</div>
+<div class="field_wrapper">
+	<div class="field_title">Пользователи в проекте:</div>
+	<div class="field_content">
+		<% @project.users.each do |user| %>
+  	<div class="user_item"><%= user.name %></div>
+  	<% end %>
+  </div>
 </div>
 <% if @project.owner_id == session[:user_id] %>
   <%= link_to 'Редактировать', edit_project_path(@project) %> |
