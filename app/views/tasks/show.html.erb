@@ -48,4 +48,4 @@
 <% if @task.owner_id == session[:user_id] %>
 <%= link_to 'Редактировать', edit_task_path(@task) %> |
 <% end %>
-<%= link_to 'Назад', tasks_path %>
+<%= link_to 'Назад', feed_path %>
