@@ -123,4 +123,11 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def complete 
+    task = Task.find(params[:id])
+    task.active = false
+    task.save
+    render :json => {:error => 'none', :msg => 'Task complete!'}
+  end
 end
