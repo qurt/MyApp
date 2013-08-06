@@ -3,6 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //Show
+#top_add_button {
+	position: relative;
+	background: #FF9900;
+	width: 200px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	margin-bottom: 10px;
+
+	a {
+		display: block;
+		width: 100%;
+		height: 100%;
+		color: #000;
+		text-decoration: none;
+	}
+}
 .field_wrapper {
   position: relative;
   min-height: 40px;
