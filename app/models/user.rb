@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
   has_secure_password
   has_and_belongs_to_many :projects
   has_many :discussions, dependent: :destroy
+  has_many :tasks
 end
