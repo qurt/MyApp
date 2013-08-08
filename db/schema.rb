@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130808165513) do
+ActiveRecord::Schema.define(:version => 20130808180829) do
 
   create_table "discussions", :force => true do |t|
     t.integer  "user_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20130808165513) do
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
     t.integer  "stage_id"
+    t.datetime "deadline"
   end
 
   create_table "users", :force => true do |t|
