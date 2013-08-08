@@ -1,20 +1,13 @@
-<div id="page_title">
-  <%= @task.title %> (<%= @task.project.name %>)
+<div class="page-header">
+  <h2><%= @task.title %> <small><%= @task.project.name %></small></h2>
 </div>
-<div  id="arrow_down"></div>
 
 <div class="field_wrapper">
   <div class="field_title">
-    <% if @task.users.count > 1 %>
-    Исполнители:
-    <% else %>
     Исполнитель
-    <% end %>
   </div>
   <div class="field_content">
-    <% @task.users.each do |user| %>
-    <div class="user_item"><%= user.name %></div>
-    <% end %>
+    <%= @task.user.name %>
   </div>
 </div>
 
