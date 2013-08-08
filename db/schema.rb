@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130806235719) do
+ActiveRecord::Schema.define(:version => 20130808165513) do
 
   create_table "discussions", :force => true do |t|
     t.integer  "user_id"
@@ -52,12 +52,12 @@ ActiveRecord::Schema.define(:version => 20130806235719) do
   create_table "tasks", :force => true do |t|
     t.integer  "project_id"
     t.integer  "owner_id"
-    t.string   "performer_id"
+    t.integer  "performer_id", :limit => 255
     t.string   "title"
     t.text     "content"
-    t.boolean  "active",       :default => true
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.boolean  "active",                      :default => true
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
     t.integer  "stage_id"
   end
 

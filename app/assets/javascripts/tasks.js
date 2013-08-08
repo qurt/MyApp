@@ -1,8 +1,8 @@
 $(document).ready(function() {
-	$('#add_new_subtask').click(function() {
-		$('.subtask_item_box').append('<div class="subtask_item"><input id="subtask_title_" name="subtask_title[]" type="text"></div><div style="clear: both"></div>');
+	$('.btn-success').click(function() {
+		$('.subtask_item_box').append('<div class="subtask_item"><input id="subtask_title_" class="form-control" name="subtask_title[]" type="text"></div><div style="clear: both"></div>');
 	});
-	$('.delete_subtask').click(function() {
+	$('.btn-danger').click(function() {
 		$(this).parent().remove();
 	});
 
