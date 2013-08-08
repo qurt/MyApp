@@ -52,11 +52,13 @@ MyApp::Application.configure do
    config.assets.precompile += %w( scaffolds.css )
    config.assets.precompile += %w( tasks.css )
    config.assets.precompile += %w( users.css )
+   #config.assets.precompile += %w( bootstrap.min.css )
    config.assets.precompile += %w( login.js )
    config.assets.precompile += %w( feed.js )
    config.assets.precompile += %w( projects.js )
    config.assets.precompile += %w( tasks.js )
    config.assets.precompile += %w( users.js )
+   #config.assets.precompile += %w( bootstrap.min.js )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false

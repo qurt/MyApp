@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require scaffolds.css
+ *= require bootstrap.min.css
  */
 @font-face {
 	font-family: 'icomoon';
