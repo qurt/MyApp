@@ -2,12 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//Edit task
-#subtask_title_ {
-	position: relative;
-	float: left;
-}
 //Form
+.form-group {
+  .input-group {
+    .input-group-addon {
+      background-color: #428bca;
+      border-color: #357ebd;
+      color: #fff;
+    }
+  }
+}
 //Show
 .field_wrapper {
   position: relative;
