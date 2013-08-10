@@ -32,7 +32,7 @@
   <div class="form-group">
     <div class="input-group">
       <span class="input-group-addon">Срок сдачи</span>
-      <%= f.datetime_select :deadline, class: 'form-control' %>
+      <%= f.datepicker 'deadline', :dateFormat => 'yy-mm-dd', class: 'form-control' %>
     </div>
   </div>
   <div class="form-group">

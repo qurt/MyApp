@@ -1,33 +1,43 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-<div class="col-lg-4">
+<div class="col-lg-3">
+  <div class="panel panel-danger">
+    <div class="panel-heading">Просроченные задачи</div>
+  </div>
+</div>
+<div class="col-lg-3">
   <div class="panel panel-primary">
     <div class="panel-heading">Today</div>
     <div class="new"><%= link_to 'Добавить задачу', new_task_path %></div>
     <% if @list_today %>
-      <% @list_today.each do |item| %>
         <ul class="list-group">
+      <% @list_today.each do |item| %>
           <li class="list-group-item">
             <%=link_to item.title, item %>
           </li>
-        </ul>
       <% end %>
+        </ul>
     <% end %>
   </div>
  </div>
-<div class="col-lg-4">
+<div class="col-lg-3">
   <div class="panel panel-primary">
     <div class="panel-heading">Tomorow</div>
     <div class="new"><%= link_to 'Добавить задачу', new_task_path %></div>
     <% if @list_tomorrow %>
+        <ul class="list-group">
         <% @list_tomorrow.each do |item| %>
-            <ul class="list-group">
-              <li class="list-group-item">
+            <li class="list-group-item">
                 <%=link_to item.title, item %>
-              </li>
-            </ul>
+            </li>
         <% end %>
+        </ul>
     <% end %>
+  </div>
+</div>
+<div class="col-lg-3">
+  <div class="panel panel-info">
+    <div class="panel-heading">Ближайшие задачи</div>
   </div>
 </div>

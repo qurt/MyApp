@@ -11,4 +11,5 @@
  *= require_self
  *= require bootstrap.min.css
  *= require ./bootstrap-glyphicons.css
+ *= require jquery-ui
  */
