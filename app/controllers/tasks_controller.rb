@@ -44,13 +44,6 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(params[:task])
-    users_list = params[:users]
-    if users_list
-      users_list.each do |item|
-        user_to_add = User.find_by_id(item)
-        @task.users << user_to_add
-      end
-    end
     sub_tasks = params[:subtask_title]
     if sub_tasks
       sub_tasks.each do |sub_task|
@@ -78,24 +71,13 @@ class TasksController < ApplicationController
   # PUT /tasks/1.json
   def update
     @task = Task.find(params[:id])
-    @task.users.clear
     @task.subtasks.clear
-    users_list = params[:users]
-    if users_list
-      users_list.each do |item|
-        if !@task.users.find_by_id(item)
-          user_to_add = User.find_by_id(item)
-          @task.users << user_to_add
-        end
-      end
-    end
     sub_tasks = params[:subtask_title]
     if sub_tasks
       sub_tasks.each do |sub_task|
         if sub_task != ''
           sub = Subtask.new
           sub.title = sub_task
-          sub.user_id = 0
           @task.subtasks << sub
         end
       end
