@@ -25,8 +25,10 @@ class TasksController < ApplicationController
   # GET /tasks/new.json
   def new
     @task = Task.new
-    project = Project.find(params[:project_id])
-    @users = project.users
+    if params[:project_id]
+      project = Project.find(params[:project_id])
+      @users = project.users
+    end
 
     respond_to do |format|
       format.html # new.html.erb

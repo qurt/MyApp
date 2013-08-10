@@ -1,19 +1,33 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-<% @projects.each do |project| %>
-  <div class="col-lg-3">
-    <div class="panel panel-primary">
-      <div class="panel-heading"><%= project.name %></div>
-      <div class="new"><a href="tasks/new/<%= project.id %>">Добавить задачу</a></div>
-      <% if project.tasks.size > 0 %>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <% @tasks = project.tasks.find_all_by_active(true) %>
-          <%= render 'task' %>
-        </li>
-      </ul>
+<div class="col-lg-4">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Today</div>
+    <div class="new"><%= link_to 'Добавить задачу', new_task_path %></div>
+    <% if @list_today %>
+      <% @list_today.each do |item| %>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <%=link_to item.title, item %>
+          </li>
+        </ul>
       <% end %>
-    </div>
+    <% end %>
   </div>
-<% end %>
+ </div>
+<div class="col-lg-4">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Tomorow</div>
+    <div class="new"><%= link_to 'Добавить задачу', new_task_path %></div>
+    <% if @list_tomorrow %>
+        <% @list_tomorrow.each do |item| %>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <%=link_to item.title, item %>
+              </li>
+            </ul>
+        <% end %>
+    <% end %>
+  </div>
+</div>

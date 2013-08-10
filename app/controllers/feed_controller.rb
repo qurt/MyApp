@@ -1,11 +1,16 @@
 class FeedController < ApplicationController
   def index
-    @projects = Array.new
-    user_id = session[:user_id]
-    projects_list = Project.all
-    projects_list.each do |item|
-      if item.users.find_by_id(user_id)
-        @projects << item
+    @list_today = Array.new
+    @list_tomorrow = Array.new
+    @list_other = Array.new
+    tasks = Task.where(performer_id: 1, active: true).order('deadline DESC')
+    tasks.each do |item|
+      if item.deadline == Date.today
+        @list_today << item
+      elsif item.deadline == Date.tomorrow
+        @list_tomorrow << item
+      else
+        @list_other << item
       end
     end
   end
