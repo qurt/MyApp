@@ -21,5 +21,6 @@ class FeedController < ApplicationController
     @list_days[1] = list_tomorrow
     @list_days[2] = list_other
     @list_days[3] = list_warning
+
   end
 end
