@@ -4,15 +4,20 @@
 <div class="col-lg-3">
   <div class="panel panel-danger">
     <div class="panel-heading">Просроченные задачи</div>
+    <% @list_days[3].each do |item| %>
+        <p>
+          <%= item.deadline.stamp("March 1, 1999") %>
+        </p>
+    <% end %>
   </div>
 </div>
 <div class="col-lg-3">
   <div class="panel panel-primary">
     <div class="panel-heading">Today</div>
     <div class="new"><%= link_to 'Добавить задачу', new_task_path %></div>
-    <% if @list_today %>
+    <% if @list_days[0] %>
         <ul class="list-group">
-      <% @list_today.each do |item| %>
+      <% @list_days[0].each do |item| %>
           <li class="list-group-item">
             <%=link_to item.title, item %>
           </li>
@@ -25,9 +30,9 @@
   <div class="panel panel-primary">
     <div class="panel-heading">Tomorow</div>
     <div class="new"><%= link_to 'Добавить задачу', new_task_path %></div>
-    <% if @list_tomorrow %>
+    <% if @list_days[1] %>
         <ul class="list-group">
-        <% @list_tomorrow.each do |item| %>
+        <% @list_days[1].each do |item| %>
             <li class="list-group-item">
                 <%=link_to item.title, item %>
             </li>
@@ -39,5 +44,10 @@
 <div class="col-lg-3">
   <div class="panel panel-info">
     <div class="panel-heading">Ближайшие задачи</div>
+    <% @list_days[2].each do |item| %>
+        <p>
+            <%= item.deadline.stamp("March 1, 1999") %>
+        </p>
+    <% end %>
   </div>
 </div>

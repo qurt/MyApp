@@ -7,6 +7,7 @@ gem 'rails', '3.2.13'
 group :development do 
 	gem 'sqlite3'
   gem 'rspec-rails', '~> 2.6.0'
+  gem 'better_errors'
 end
 group :production do 
 	gem 'pg'
@@ -46,3 +47,5 @@ gem 'jquery_datepicker'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'stamp'
