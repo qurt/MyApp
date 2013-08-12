@@ -1,40 +1,38 @@
-<div class="page-header">
-  <h2><%= @task.title %> <small><%= @task.project.name %></small></h2>
-</div>
-
-<div class="field_wrapper">
-  <div class="field_title">
-    Исполнитель
-  </div>
-  <div class="field_content">
-    <%= @task.user.name %>
-  </div>
-</div>
-
-<div class="field_wrapper">
-  <div class="field_title">Описание:</div>
-  <div class="field_content"><%= @task.content %></div>
-</div>
-
-<div class="field_wrapper">
-  <div class="field_title">Подзадачи</div>
-  <div class="field_content">
-    <div class="subtask_box">
-      <% @task.subtasks.each do |subtask| %>
-          <% checked = false %>
-          <% unless subtask.active %>
-              <% checked = true %>
-          <% end %>
-          <div class="subtask_item"><%= check_box_tag(subtask.id, subtask.id, checked) %><%= label_tag(subtask.id, subtask.title) %></div>
-      <% end %>
+<div class="well">
+    <div class="page-header">
+        <h2><%= @task.title %> <small><%= @task.project.name %></small></h2>
+        <% if @task.owner_id == session[:user_id] %>
+            <%= link_to 'Редактировать', edit_task_path(@task), {class: 'btn btn-warning'} %>
+            <%= link_to 'Удалить', @task, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+        <% end %>
     </div>
-  </div>
+    <div class="list-group">
+        <div class="list-group-item">
+            <h4 class="list-group-item-heading text-info">Исполнитель</h4>
+            <div class="list-group-item-text"><%= @task.user.name %></div>
+        </div>
+        <div class="list-group-item">
+            <h4 class="list-group-item-heading text-info">Описание</h4>
+            <div class="list-group-item-text"><%= @task.content %></div>
+        </div>
+        <div class="list-group-item">
+            <h4 class="list-group-item-heading text-info">Подзадачи</h4>
+            <div class="list-group-item-text">
+                <div class="subtask_box">
+                    <% @task.subtasks.each do |subtask| %>
+                        <% checked = false %>
+                        <% unless subtask.active %>
+                            <% checked = true %>
+                        <% end %>
+                        <div class="subtask_item"><%= check_box_tag(subtask.id, subtask.id, checked) %><%= label_tag(subtask.id, subtask.title) %></div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<% if @task.owner_id == session[:user_id] %>
-<%= link_to 'Редактировать', edit_task_path(@task) %> |
-<% end %>
-<%= link_to 'Назад', feed_path %> | <%= link_to 'Готово', "/tasks/complete/#{@task.id}" %> | <%= link_to 'Удалить', @task, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Назад', feed_path, {class: 'btn btn-info'} %> <%= link_to 'Готово', "/tasks/complete/#{@task.id}", {class: 'btn btn-success'} %>
 
 <div class="discuss_box">
   <div class="messages_list">
