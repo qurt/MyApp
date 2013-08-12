@@ -1,6 +1,11 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
+<div class="row grid">
+  <div class="col-lg-2">
+    <div class="btn btn-success">
+      <%= link_to 'Добавить задачу', new_task_path %>
+    </div>
+  </div>
+</div>
+<div class="row">
 <div class="col-lg-3">
   <div class="panel panel-danger">
     <div class="panel-heading">Просроченные задачи</div>
@@ -15,8 +20,7 @@
 </div>
 <div class="col-lg-3">
   <div class="panel panel-primary">
-    <div class="panel-heading">Today</div>
-    <div class="new"><%= link_to 'Добавить задачу', new_task_path %></div>
+    <div class="panel-heading">Сегодня</div>
     <% if @list_days[0] %>
         <ul class="list-group">
       <% @list_days[0].each do |item| %>
@@ -30,8 +34,7 @@
  </div>
 <div class="col-lg-3">
   <div class="panel panel-primary">
-    <div class="panel-heading">Tomorow</div>
-    <div class="new"><%= link_to 'Добавить задачу', new_task_path %></div>
+    <div class="panel-heading">Завтра</div>
     <% if @list_days[1] %>
         <ul class="list-group">
         <% @list_days[1].each do |item| %>
@@ -53,3 +56,4 @@
     <% end %>
   </div>
 </div>
+    </div>

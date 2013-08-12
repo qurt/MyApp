@@ -13,3 +13,9 @@
  *= require ./bootstrap-glyphicons.css
  *= require jquery-ui
  */
+.grid {
+    margin-bottom: 15px;
+}
+.btn a {
+    color: #fff;
+}
