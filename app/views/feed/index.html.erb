@@ -10,7 +10,7 @@
     <ul class="list-group">
         <% @list_days[3].each do |item| %>
             <li class="list-group-item">
-              <%= link_to item.title, item %> <span class="text-danger small-text"><%= item.deadline.stamp('1 March') %></span> <span class="small-text text-muted"><%= item.project.name %></span>
+              <%= link_to item.title, item %> <span class="text-danger small-text"><%= l item.deadline, format: :long  %></span> <span class="small-text text-muted"><%= item.project.name %></span>
             </li>
         <% end %>
     </ul>
@@ -49,7 +49,7 @@
     <div class="panel-heading">Ближайшие задачи</div>
     <ul class="list-group">
     <% @list_days[2].each do |item| %>
-          <li class="list-group-item"><%= link_to item.title, item %> <span class="small-text"><%= item.deadline.stamp("1 March") %></span> <span class="small-text text-muted"><%= item.project.name %></span></li>
+          <li class="list-group-item"><%= link_to item.title, item %> <span class="small-text"><%= l item.deadline, format: :long  %></span> <span class="small-text text-muted"><%= item.project.name %></span></li>
     <% end %>
     </ul>
   </div>

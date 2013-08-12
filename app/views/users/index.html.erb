@@ -1,9 +1,9 @@
-<h1>Listing users</h1>
+<h1><%= User.model_name.human %></h1>
 
 <table>
   <tr>
-    <th>Login</th>
-    <th>Name</th>
+    <th><%= User.human_attribute_name(:login) %></th>
+    <th><%= User.human_attribute_name(:name) %></th>
     <th></th>
     <th></th>
     <th></th>
