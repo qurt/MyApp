@@ -12,7 +12,7 @@
     <ul class="list-group">
         <% @list_days[3].each do |item| %>
             <li class="list-group-item">
-              <%= link_to item.title, item %> - <%= item.deadline.stamp('1 March') %>
+              <%= link_to item.title, item %> <span class="text-danger small-text"><%= item.deadline.stamp('1 March') %></span> <span class="small-text text-muted"><%= item.project.name %></span>
             </li>
         <% end %>
     </ul>
@@ -25,7 +25,7 @@
         <ul class="list-group">
       <% @list_days[0].each do |item| %>
           <li class="list-group-item">
-            <%=link_to item.title, item %>
+            <%=link_to item.title, item %> <span class="small-text text-muted"><%= item.project.name %></span>
           </li>
       <% end %>
         </ul>
@@ -39,7 +39,7 @@
         <ul class="list-group">
         <% @list_days[1].each do |item| %>
             <li class="list-group-item">
-                <%=link_to item.title, item %>
+                <%=link_to item.title, item %> <span class="small-text text-muted"><%= item.project.name %></span>
             </li>
         <% end %>
         </ul>
@@ -49,11 +49,11 @@
 <div class="col-lg-3">
   <div class="panel panel-info">
     <div class="panel-heading">Ближайшие задачи</div>
+    <ul class="list-group">
     <% @list_days[2].each do |item| %>
-        <p>
-            <%= item.deadline.stamp("March 1, 1999") %>
-        </p>
+          <li class="list-group-item"><%= link_to item.title, item %> <span class="small-text"><%= item.deadline.stamp("1 March") %></span> <span class="small-text text-muted"><%= item.project.name %></span></li>
     <% end %>
+    </ul>
   </div>
 </div>
     </div>
