@@ -1,10 +1,12 @@
 <div class="well">
     <div class="page-header">
-        <h2><%= @task.title %> <small><%= @task.project.name %></small></h2>
-        <% if @task.owner_id == session[:user_id] %>
+        <h2>
+          <%= @task.title %> <small><%= @task.project.name %></small>
+          <% if @task.owner_id == session[:user_id] %>
             <%= link_to 'Редактировать', edit_task_path(@task), {class: 'btn btn-warning'} %>
             <%= link_to 'Удалить', @task, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
-        <% end %>
+          <% end %>
+        </h2>
     </div>
     <div class="list-group">
         <div class="list-group-item">
