@@ -1,8 +1,10 @@
 ru:
   activerecord:
     models:
-      user: "Пользователь"
-      task: "Задача"
+      user:
+        one: "Пользователь"
+        other: "Пользователи"
+      task: "задачу"
     attributes:
       user:
         login: "Логин"
