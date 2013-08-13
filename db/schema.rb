@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130811203545) do
+ActiveRecord::Schema.define(:version => 20130813210348) do
 
   create_table "discussions", :force => true do |t|
     t.integer  "user_id"
@@ -59,12 +59,8 @@ ActiveRecord::Schema.define(:version => 20130811203545) do
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
     t.integer  "stage_id"
-    t.datetime "deadline"
-  end
-
-  create_table "tasks_users", :id => false, :force => true do |t|
-    t.integer "user_id"
-    t.integer "task_id"
+    t.date     "deadline"
+    t.integer  "status",       :limit => 255, :default => 0
   end
 
   create_table "users", :force => true do |t|
