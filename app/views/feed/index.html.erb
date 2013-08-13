@@ -9,7 +9,12 @@
     <div class="panel-heading">Просроченные задачи</div>
     <ul class="list-group">
         <% @list_days[3].each do |item| %>
-            <li class="list-group-item">
+          <% if item.status == 2 %>
+              <% status = 'text-warning' %>
+          <% else %>
+              <% status = '' %>
+          <% end %>
+            <li class="list-group-item <%= status %>">
               <%= link_to item.title, item %> <span class="text-danger small-text"><%= l item.deadline, format: :long  %></span> <span class="small-text text-muted"><%= item.project.name %></span>
             </li>
         <% end %>
@@ -22,7 +27,12 @@
     <% if @list_days[0].count > 0 %>
         <ul class="list-group">
       <% @list_days[0].each do |item| %>
-          <li class="list-group-item">
+              <% if item.status == 2 %>
+                  <% status = 'text-warning' %>
+              <% else %>
+                  <% status = '' %>
+              <% end %>
+          <li class="list-group-item <%= status %>">
             <%=link_to item.title, item %> <span class="small-text text-muted"><%= item.project.name %></span>
           </li>
       <% end %>
@@ -38,7 +48,12 @@
     <% if @list_days[1].count > 0 %>
         <ul class="list-group">
         <% @list_days[1].each do |item| %>
-            <li class="list-group-item">
+              <% if item.status == 2 %>
+                  <% status = 'text-warning' %>
+              <% else %>
+                  <% status = '' %>
+              <% end %>
+            <li class="list-group-item <%= status %>">
                 <%=link_to item.title, item %> <span class="small-text text-muted"><%= item.project.name %></span>
             </li>
         <% end %>
@@ -53,7 +68,12 @@
     <div class="panel-heading">Ближайшие задачи</div>
     <ul class="list-group">
     <% @list_days[2].each do |item| %>
-          <li class="list-group-item"><%= link_to item.title, item %> <span class="small-text"><%= l item.deadline, format: :long  %></span> <span class="small-text text-muted"><%= item.project.name %></span></li>
+          <% if item.status == 2 %>
+              <% status = 'text-warning' %>
+          <% else %>
+              <% status = '' %>
+          <% end %>
+          <li class="list-group-item <%= status %>"><%= link_to item.title, item %> <span class="small-text"><%= l item.deadline, format: :long  %></span> <span class="small-text text-muted"><%= item.project.name %></span></li>
     <% end %>
     </ul>
   </div>

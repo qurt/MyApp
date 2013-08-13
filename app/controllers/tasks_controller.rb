@@ -112,7 +112,31 @@ class TasksController < ApplicationController
   def complete 
     task = Task.find(params[:id])
     task.active = false
+    task.status = 2
     task.save
     redirect_to root_url
+  end
+  def uncomplete
+    task = Task.find(params[:id])
+    task.status = 0
+    task.save
+    redirect_to '/check'
+  end
+  def ready
+    task = Task.find(params[:id])
+    current_user = User.find(session[:user_id]).id
+    if task.owner_id == current_user
+      task.status = 2
+      task.active = false
+    else
+      task.status = 1
+    end
+
+    task.save
+    redirect_to root_url
+  end
+  def check
+    @tasks = Task.where('owner_id = ? AND status = ?', session[:user_id], 1)
+    render 'check'
   end
 end

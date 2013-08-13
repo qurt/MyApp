@@ -15,6 +15,7 @@ MyApp::Application.routes.draw do
 
   resources :tasks
   get '/tasks/complete/:id', to: 'tasks#complete'
+  get '/tasks/ready/:id', to: 'tasks#ready'
 
   resources :projects
 
