@@ -1,4 +1,5 @@
-<div id="page_title"><%= @task.title %></div>
-<div id="arrow_down"></div>
+<div class="well">
+    <div class="page-header"><h2><%= @task.title %> <small><%= @task.project.name %></small></h2></div>
 
-<%= render 'form' %>
+    <%= render 'form' %>
+</div>

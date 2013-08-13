@@ -19,7 +19,7 @@
 <div class="col-lg-3">
   <div class="panel panel-primary">
     <div class="panel-heading">Сегодня</div>
-    <% if @list_days[0] %>
+    <% if @list_days[0].count > 0 %>
         <ul class="list-group">
       <% @list_days[0].each do |item| %>
           <li class="list-group-item">
@@ -27,13 +27,15 @@
           </li>
       <% end %>
         </ul>
+    <% else %>
+        <p class="text-muted text-center">Все сделано =)</p>
     <% end %>
   </div>
  </div>
 <div class="col-lg-3">
   <div class="panel panel-primary">
     <div class="panel-heading">Завтра</div>
-    <% if @list_days[1] %>
+    <% if @list_days[1].count > 0 %>
         <ul class="list-group">
         <% @list_days[1].each do |item| %>
             <li class="list-group-item">
@@ -41,6 +43,8 @@
             </li>
         <% end %>
         </ul>
+    <% else %>
+        <p class="text-muted text-center">Все сделано =)</p>
     <% end %>
   </div>
 </div>
