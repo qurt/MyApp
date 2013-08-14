@@ -1,0 +1,9 @@
+<div class="well">
+  <div class="page-header"><h2>Задачи, ожидающие проверки</h2></div>
+
+  <div class="container">
+    <% @tasks.each do |task| %>
+      <%= task.title %> <br />
+    <% end %>
+  </div>
+</div>

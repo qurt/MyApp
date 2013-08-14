@@ -13,6 +13,7 @@ MyApp::Application.routes.draw do
   post 'subtasks', to: 'subtasks#index'
   get '/tasks/new/:project_id', to: 'tasks#new'
 
+  get '/tasks/check', to: 'tasks#check'
   resources :tasks
   get '/tasks/complete/:id', to: 'tasks#complete'
   get '/tasks/ready/:id', to: 'tasks#ready'
