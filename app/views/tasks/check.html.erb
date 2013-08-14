@@ -2,8 +2,25 @@
   <div class="page-header"><h2>Задачи, ожидающие проверки</h2></div>
 
   <div class="container">
-    <% @tasks.each do |task| %>
-      <%= task.title %> <br />
-    <% end %>
+    <div class="col-lg-6">
+      <div class="panel panel-info">
+        <div class="panel-heading">Выполняемые задачи</div>
+        <ul class="list-group">
+          <% @current_tasks.each do |item| %>
+            <li class="list-group-item"><%= item.title %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="panel panel-success">
+        <div class="panel-heading">Выполненые задачи</div>
+        <ul class="list-group">
+          <% @tasks.each do |task| %>
+            <li class="list-group-item"><%= task.title %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

@@ -137,6 +137,7 @@ class TasksController < ApplicationController
   end
   def check
     @tasks = Task.where('owner_id = ? AND status = ?', session[:user_id], 1)
+    @current_tasks = Task.where(:owner_id => session[:user_id], :status => 0)
     render 'check'
   end
 end
