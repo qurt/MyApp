@@ -10,24 +10,30 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label 'Название проекта' %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="users">
-    <%= label_tag 'Пользователи в проекте' %><br />
-    <% @users.each do |user| %>
-    <% checked = false %>
-    <% if @project.users.find_by_id(user.id) %>
-      <% checked = true %> 
-    <% end %>
-    <%= check_box_tag('users[]', user.id, checked) %>
-    <%= user.login %>
-    <% end %>
-  </div>
-  <div class="actions">
-    <%= f.submit %> <div class="button_back"><%= link_to 'Назад', projects_path %></div>
-  </div>
-  <%= hidden_field_tag('project[owner_id]', session[:user_id]) %>
+  <fieldset>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon">Название проекта</span>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon">Пользователи в проекте</span>
+        <% @users.each do |user| %>
+            <% checked = false %>
+            <% if @project.users.find_by_id(user.id) %>
+                <% checked = true %>
+            <% end %>
+            <%= check_box_tag('users[]', user.id, checked) %>
+            <%= user.login %>
+            <br />
+        <% end %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit class: 'btn btn-success' %> <%= link_to 'Назад', projects_path, class: 'btn btn-info' %></div>
+    </div>
+    <%= hidden_field_tag('project[owner_id]', session[:user_id]) %>
+  </fieldset>
 <% end %>
