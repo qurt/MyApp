@@ -10,11 +10,11 @@
     <ul class="list-group">
         <% @list_days[3].each do |item| %>
           <% if item.status == 1 %>
-              <% status = 'text-warning' %>
+              <% status = 'label-warning' %>
           <% else %>
               <% status = '' %>
           <% end %>
-            <li class="list-group-item label-warning">
+            <li class="list-group-item <%= status %>">
               <%= link_to item.title, item %> <span class="text-danger small-text"><%= l item.deadline, format: :long  %></span> <span class="small-text text-muted"><%= item.project.name %></span>
             </li>
         <% end %>
@@ -28,7 +28,7 @@
         <ul class="list-group">
       <% @list_days[0].each do |item| %>
               <% if item.status == 1 %>
-                  <% status = 'text-warning' %>
+                  <% status = 'label-warning' %>
               <% else %>
                   <% status = '' %>
               <% end %>
@@ -49,7 +49,7 @@
         <ul class="list-group">
         <% @list_days[1].each do |item| %>
               <% if item.status == 1 %>
-                  <% status = 'text-warning' %>
+                  <% status = 'label-warning' %>
               <% else %>
                   <% status = '' %>
               <% end %>
@@ -69,7 +69,7 @@
     <ul class="list-group">
     <% @list_days[2].each do |item| %>
           <% if item.status == 1 %>
-              <% status = 'text-warning' %>
+              <% status = 'label-warning' %>
           <% else %>
               <% status = '' %>
           <% end %>
