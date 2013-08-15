@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130815150753) do
+ActiveRecord::Schema.define(:version => 20130815151408) do
 
   create_table "discussions", :force => true do |t|
     t.integer  "user_id"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20130815150753) do
     t.integer  "stage_id"
     t.date     "deadline"
     t.integer  "status",       :limit => 255, :default => 0
+    t.integer  "group_id"
   end
 
   create_table "tasks_users", :id => false, :force => true do |t|
