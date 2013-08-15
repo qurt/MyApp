@@ -1,6 +1,6 @@
 MyApp::Application.routes.draw do
   resources :stages
-
+  match '/update_stages' => 'tasks#update_stages'
 
   controller :login do
     get 'login' => :new

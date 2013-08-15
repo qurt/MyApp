@@ -18,7 +18,13 @@
       <% if params[:project_id] %>
       <% project_id = params[:project_id].to_i %>
       <% end %>
-      <%= select_tag('task[project_id]', options_for_select(getSelectProjectList(), project_id), class: 'form-control') %>
+      <%= select_tag('task[project_id]', options_for_select(getSelectProjectList(), project_id), class: 'form-control', :onchange => 'update_stages(this.value)', :prompt => 'Select project') %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon">Стадия</span>
+      <div id="stages_box"><%= render :partial => 'stages', :object => @stages, class: 'form-control' %></div>
     </div>
   </div>
   <%= hidden_field_tag('task[owner_id]', session[:user_id]) %>

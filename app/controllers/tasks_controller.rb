@@ -25,6 +25,7 @@ class TasksController < ApplicationController
   # GET /tasks/new.json
   def new
     @task = Task.new
+    @stages = Stage.all
     if params[:project_id]
       project = Project.find(params[:project_id])
       @users = project.users
@@ -47,6 +48,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(params[:task])
     sub_tasks = params[:subtask_title]
+    @task.stage_id = params[:stages]
     if sub_tasks
       sub_tasks.each do |sub_task|
         if sub_task != ''
@@ -139,5 +141,10 @@ class TasksController < ApplicationController
     @tasks = Task.where('owner_id = ? AND status = ?', session[:user_id], 1)
     @current_tasks = Task.where(:owner_id => session[:user_id], :status => 0)
     render 'check'
+  end
+
+  def update_stages
+    @stages = Stage.where(:project_id => params[:project_id])
+    render :partial => 'stages', :object => @stages
   end
 end
