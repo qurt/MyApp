@@ -13,5 +13,15 @@ class FeedController < ApplicationController
     @list_days[2] = list_other
     @list_days[3] = list_warning.reverse
 
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @list_days }
+    end
+  end
+
+  def refresh
+    check_date = Time.now - 10.second
+    tasks = Task.where('created_at >= :date AND performer_id = :id', date: check_date, id: session[:user_id])
+    render json: tasks
   end
 end
