@@ -15,3 +15,17 @@
 //= require jquery-ui
 //= require bootstrap.min.js
 //
+$(document).ready( function() {
+    if (window.webkitNotifications) {
+        console.log('Notifications are supported!');
+    } else {
+        console.log('Notification are not supported!');
+    }
+    $('#require_permission').click(function () {
+        if (window.webkitNotifications.checkPermission() == 0) {
+            window.webkitNotifications.createNotification('icon.png', 'Test', 'test').show();
+        } else {
+            window.webkitNotifications.requestPermission();
+        }
+    });
+});
