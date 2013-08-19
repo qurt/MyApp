@@ -28,4 +28,10 @@ $(document).ready( function() {
             window.webkitNotifications.requestPermission();
         }
     });
+
+    $('#project_user_tokens').tokenInput('/user_field.json', {
+        crossDomain: false,
+        prePopulate: $('#project_author_tokens').data('pre'),
+        theme: 'facebook'
+    });
 });

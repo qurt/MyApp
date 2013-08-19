@@ -21,6 +21,7 @@ MyApp::Application.routes.draw do
   get '/tasks/ready/:id', to: 'tasks#ready'
 
   resources :projects
+  get '/user_field', to: 'users#user_field'
 
 
   resources :users

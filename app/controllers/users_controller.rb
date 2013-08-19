@@ -80,4 +80,12 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def user_field
+    @users = User.where('name like ?', "%#{params[:q]}%")
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.json { render :json => @users.map(&:attributes) }
+    end
+  end
 end
