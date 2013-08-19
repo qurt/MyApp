@@ -13,5 +13,40 @@
         </tr>
       <% end %>
     </table>
+  </div>
+</div>
+<div class="row">
+  <% @projects.each do |project| %>
+    <div class="col-lg-12 alert alert-info">
+      <%= link_to project.name, project, class: 'alert-link' %> | Выполнено: <%=inactiveTaskCount(project.id)%> из <%=TaskCount(project.id)%>
     </div>
+    <% project.stages.each do |stage| %>
+      <div class="col-lg-11 col-lg-offset-1 well well-sm">
+        <%= stage.title %>
+      </div>
+      <% stage.tasks.each do |task| %>
+        <div class="col-lg-10 col-lg-offset-2 well well-sm">
+          <%= task.title %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="row">
+  <% @projects.each do |project| %>
+    <div class="panel panel-primary">
+      <div class="panel-heading"><%= project.name %></div>
+      <% project.stages.each do |stage| %>
+        <div class="panel panel-info">
+          <div class="panel-heading"><%= stage.title %></div>
+          <% stage.tasks.each do |task| %>
+            <ul class="list-group">
+              <li class="list-group-item"><%= task.title %></li>
+            </ul>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
