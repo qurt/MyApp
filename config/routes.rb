@@ -11,6 +11,7 @@ MyApp::Application.routes.draw do
   get 'feed/index'
   get 'feed', to: 'feed#index'
   get '/refresh', to: 'feed#refresh'
+  get '/render_task', to: 'feed#render_task'
   post 'subtasks', to: 'subtasks#index'
   get '/tasks/new/:project_id', to: 'tasks#new'
 

@@ -3,6 +3,21 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 render = (item) ->
+  otherDate = new Date(item.deadline)
+  today = new Date()
+  if otherDate < today
+    $.get '/render_task', {task_id : item.id}, (data) ->
+      $('#last_date').append(data)
+  else if otherDate = today
+    $.get '/render_task', {task_id : item.id}, (data) ->
+      $('#today_date').append(data)
+  else if otherDate > today + 864000000
+    $.get '/render_task', {task_id : item.id}, (data) ->
+      $('#far_date').append(data)
+  else
+    $.get '/render_task', {task_id : item.id}, (data) ->
+      $('#tomorrow_date').append(data)
+  true
 show_notification = (item) ->
   title = 'Новая задача!'
   content = item.title
@@ -19,4 +34,6 @@ refresh = ->
     console.log(json.length)
 if window.webkitNotifications.checkPermission() == 0
   setInterval(refresh, 10000)
+
+
 

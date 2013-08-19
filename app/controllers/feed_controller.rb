@@ -24,4 +24,9 @@ class FeedController < ApplicationController
     tasks = Task.where('created_at >= :date AND performer_id = :id', date: check_date, id: session[:user_id])
     render json: tasks
   end
+
+  def render_task
+    @task = Task.find(params[:task_id])
+    render :partial => 'feed/task', :object => @task
+  end
 end
