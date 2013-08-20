@@ -5,5 +5,5 @@ class Task < ActiveRecord::Base
   belongs_to :group
   belongs_to :user, foreign_key: "performer_id"
   has_many :subtasks, dependent: :destroy, autosave: true
-  has_many :discussions, dependent: :destroy 
+  has_many :discussions, dependent: :destroy
 end
