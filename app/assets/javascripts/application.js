@@ -34,7 +34,7 @@ $(document).ready( function() {
 
     $('#project_user_tokens').tokenInput('/user_field.json', {
         crossDomain: false,
-        prePopulate: $('#project_author_tokens').data('pre'),
+        prePopulate: $('#project_user_tokens').data('pre'),
         theme: 'facebook'
     });
 
