@@ -16,6 +16,9 @@
 //= require bootstrap.min.js
 //
 $(document).ready( function() {
+    $('a').tooltip({
+    });
+
     if (window.webkitNotifications) {
         console.log('Notifications are supported!');
     } else {
