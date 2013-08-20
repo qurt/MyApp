@@ -9,33 +9,34 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="navbar navbar-inverse">
-    <div class="container">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/">MyApp</a>
-      <div class="nav-collapse collapse navbar-responsive-collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="/"><span class="glyphicon glyphicon-home"></span> Главная</a></li>
-          <li><a href="/projects"><span class="glyphicon glyphicon-list-alt"></span> Проекты</a></li>
-          <% if if_superuser() %>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/"><span class="glyphicon glyphicon-home"></span> Главная</a></li>
+        <li><a href="/projects"><span class="glyphicon glyphicon-list-alt"></span> Проекты</a></li>
+        <% if if_superuser() %>
             <li><a href="/users"><span class="glyphicon glyphicon-user"></span> Пользователи</a></li>
-          <% end %>
-          <li>
-            <a href="/tasks/check"><span class="glyphicon glyphicon-ok-sign"></span> Задачи <span class="badge"><%= check_task_count() %></span></a>
-          </li>
-        </ul>
-        <div class="navbar-text pull-right">
-          <%= current_user() %>
-          <%= link_to 'Выйти', login_url, method: :delete %>
-          <!-- <div id="require_permission">Всключить уведомления</div> -->
-        </div>
+        <% end %>
+        <li>
+          <a href="/tasks/check"><span class="glyphicon glyphicon-ok-sign"></span> Задачи <span class="badge"><%= check_task_count() %></span></a>
+        </li>
+      </ul>
+      <div class="navbar-text pull-right">
+        <%= current_user() %>
+        <%= link_to 'Выйти', login_url, method: :delete %>
+        <!-- <div id="require_permission">Всключить уведомления</div> -->
       </div>
     </div>
-  </div>
+  </nav>
   <div class="container">
     <%= yield %>
   </div>
