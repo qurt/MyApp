@@ -11,8 +11,8 @@ icons/task.png: icons/task-484632e8329c5011af77f4084526f81a.png
 icons/task/index.png: icons/task-484632e8329c5011af77f4084526f81a.png
 icons/users.png: icons/users-5d84f5589676dd886a7d7b2450e2f8f4.png
 icons/users/index.png: icons/users-5d84f5589676dd886a7d7b2450e2f8f4.png
-application.js: application-89553b8e8c111f09c90efbcd9650f84b.js
-application/index.js: application-89553b8e8c111f09c90efbcd9650f84b.js
+application.js: application-2351480fa819b1f2c94718b54279742e.js
+application/index.js: application-2351480fa819b1f2c94718b54279742e.js
 feed.js: feed-0f36418a56408e609fbea9892fac1a67.js
 feed/index.js: feed-0f36418a56408e609fbea9892fac1a67.js
 login.js: login-1b13569e9620782f423d4cd3ce931750.js
@@ -23,8 +23,8 @@ tasks.js: tasks-8baee0d151c0a20701bc6e5d0428ca48.js
 tasks/index.js: tasks-8baee0d151c0a20701bc6e5d0428ca48.js
 users.js: users-0f36418a56408e609fbea9892fac1a67.js
 users/index.js: users-0f36418a56408e609fbea9892fac1a67.js
-application.css: application-b7b15b12e761773654f0ed569cd4bcc9.css
-application/index.css: application-b7b15b12e761773654f0ed569cd4bcc9.css
+application.css: application-7a6177f332db11d738fabd05c49fda45.css
+application/index.css: application-7a6177f332db11d738fabd05c49fda45.css
 feed.css: feed-11c2ca0f6e2da43b3d361ed33cae833a.css
 feed/index.css: feed-11c2ca0f6e2da43b3d361ed33cae833a.css
 login.css: login-1c0da246b27010c12ddfd917893f21b7.css

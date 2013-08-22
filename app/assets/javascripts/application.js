@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require bootstrap.min.js
+//= require jquery.tokeninput
 //
 $(document).ready( function() {
     $('a').tooltip({

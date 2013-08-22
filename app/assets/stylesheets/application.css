@@ -11,6 +11,7 @@
  *= require_self
  *= require bootstrap.min.css
  *= require jquery-ui
+ *= require token-input-facebook
  */
 .grid {
     margin-bottom: 15px;
