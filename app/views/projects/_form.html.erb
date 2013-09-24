@@ -29,7 +29,14 @@
       <div class="input-group">
         <span class="input-group-addon">Стадии проекта</span>
         <div class="form-control">
-
+          <% if @project.stages.any? %>
+            <% @project.stages.each do |stage| %>
+              <div class="stages_item_<%=stage.id%>">
+                <%= text_field_tag('stage_title[]', stage.title, class: 'form-control') %>
+                <div class="btn btn-danger">Удалить</div>
+              </div>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
