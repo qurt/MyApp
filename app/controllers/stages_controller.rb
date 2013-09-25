@@ -17,14 +17,10 @@ class StagesController < ApplicationController
   def update
     @stage = Stage.find(params[:id])
 
-    respond_to do |format|
-      if @stage.update_attributes(params[:stage])
-        format.html { redirect_to @stage, notice: 'Stage was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @stage.errors, status: :unprocessable_entity }
-      end
+    if @stage.update_attributes(params[:stage])
+      head :no_content
+    else
+      format.json { render json: @stage.errors, status: :unprocessable_entity }
     end
   end
 
