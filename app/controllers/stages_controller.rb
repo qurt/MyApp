@@ -80,4 +80,11 @@ class StagesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def del_stages
+    stage = Stage.find(params[:id])
+    stage.destroy
+
+    head :no_content
+  end
 end
