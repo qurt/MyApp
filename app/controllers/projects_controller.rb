@@ -77,12 +77,13 @@ class ProjectsController < ApplicationController
     users_list = params[:users]
     if users_list
       users_list.each do |item|
-        if !@project.users.find_by_id(item)
+        unless @project.users.find_by_id(item)
           user_to_add = User.find_by_id(item)
           @project.users << user_to_add
         end
       end
     end
+
 
     respond_to do |format|
       if @project.update_attributes(params[:project])

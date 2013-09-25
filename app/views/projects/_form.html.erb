@@ -32,12 +32,18 @@
           <% if @project.stages.any? %>
             <% @project.stages.each do |stage| %>
               <div class="stages_item_<%=stage.id%>">
-                <%= text_field_tag('stage_title[]', stage.title, class: 'form-control') %>
-                <div class="btn btn-danger" id="<% stage.id %>">Удалить</div>
+                <%= label_tag('stages_title', stage.title) %>
+                <div class="btn btn-warning" id="<%= stage.id %>">Редактировать</div>
+                <div class="btn btn-danger" id="<%= stage.id %>">Удалить</div>
               </div>
             <% end %>
           <% end %>
+          <div class="btn btn-success" id="add_stage_button">Добавить стадию</div>
         </div>
+      </div>
+      <div class="add_stage_form">
+        <input id="add_stages_field" type="text" name="stage['title']" placeholder="Название">
+        <div class="btn btn-success" id="post_stage_button">Создать</div>
       </div>
     </div>
     <div class="actions">
