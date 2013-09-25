@@ -62,16 +62,20 @@
         <% if @task.subtasks.any? %>
           <% @task.subtasks.each do |subtask| %>
             <div class="subtask_item_<%= subtask.id %>">
-              <%= text_field_tag('subtask_title[]', subtask.title, class: 'form-control') %>
+              <%= label_tag('subtask_title', subtask.title) %>
+              <div class="btn btn-warning" id="<%= stage.id %>">Редактировать</div>
               <div class="btn btn-danger" id="<%= subtask.id %>">Удалить</div>
             </div>
             <div style="clear:both;"></div>
           <% end %>
         <% end %>
-        <%= text_field_tag('subtask_title[]','', class: 'form-control') %>
+        <div class="btn btn btn-default" style="margin-top:10px">Добавить подзадачу</div>
+      </div>
+      <div class="add_subtask_form">
+        <input id="add_subtask_field" type="text" name="subtask['title']" placeholder="Название">
+        <div class="btn btn-success" id="post_subtask_button">Создать</div>
       </div>
     </div>
-    <div class="btn btn btn-default" style="margin-top:10px">Добавить подзадачу</div>
   </div>
   <div class="actions">
     <%= f.submit class: 'btn btn-success' %>

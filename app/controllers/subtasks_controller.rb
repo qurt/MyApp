@@ -18,5 +18,32 @@ class SubtasksController < ApplicationController
 				end
 			end
 		end
-	end
+  end
+
+  def create
+    @subtask = Subtask.new(params[:stage])
+
+    if @subtask.save
+      head :no_content
+    else
+      format.json { render json: @subtask.errors, status: :unprocessable_entity }
+    end
+  end
+
+  def update
+    @subtask = Subtask.find(params[:id])
+
+    if @subtask.update_attributes(params[:subtask])
+      head :no_content
+    else
+      format.json { render json: @subtask.errors, status: :unprocessable_entity }
+    end
+  end
+
+  def destroy
+    @subtask = Subtask.find(params[:id])
+    @subtask.destroy
+
+    head :no_content
+  end
 end
