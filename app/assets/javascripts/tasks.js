@@ -20,8 +20,32 @@ $(document).ready(function() {
             }
         });
     });
-
-
+    $('div.btn-warning').click(function() {
+        var id = $(this).attr('id');
+        $('.add_subtask_form').show();
+        $('#add_subtask_field').val($(this).parent().find('label').html);
+        flag = true;
+    });
+    $('#add_subtask_button').click(function() {
+        $('.add_subtask_form').show();
+    });
+    $('#post_subtask_button').click(function() {
+        var url = '';
+        if (flag) {
+            url = '/subtask/update';
+        } else {
+            url = '/subtask/create';
+        }
+        $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'html',
+            success: function() {
+                $('#add_subtask_field').val('');
+                $('.add_subtask_form').hide();
+            }
+        });
+    });
 });
 function update_stages(project_id) {
     $.ajax({
