@@ -6,13 +6,13 @@ $(document).ready ->
   $('div.btn-danger').click ->
     id = $(this).attr('id')
     $.ajax(url:'/stages/destroy/', type:'GET',data:{'id': id}, dataType:'html', success: ->
-      $(this).parent.remove()
+      $(this).parent().remove()
     )
 
   $('div.btn-warning').click ->
     id = $(this).attr('id')
     $('.add_stage_form').show()
-    $('#add_stage_field').val($(this).parent.find('label').html)
+    $('#add_stage_field').val($(this).parent().find('label').html)
     flag = true
 
   $('#add_stage_button').click ->
