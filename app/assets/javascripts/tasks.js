@@ -8,10 +8,11 @@ $(document).ready(function() {
 	});
 
     var flag=false;
+    var id = 0;
     $('div.btn-danger').click(function() {
-        var id = $(this).attr('id');
+        id = $(this).attr('id');
         $.ajax({
-            url: 'subtasks/destroy',
+            url: '/subtasks/destroy',
             type: 'GET',
             data: {'id': id},
             dataType: 'html',
@@ -21,7 +22,7 @@ $(document).ready(function() {
         });
     });
     $('div.btn-warning').click(function() {
-        var id = $(this).attr('id');
+        id = $(this).attr('id');
         $('.add_subtask_form').show();
         $('#add_subtask_field').val($(this).parent().find('label').html);
         flag = true;
@@ -32,7 +33,7 @@ $(document).ready(function() {
     $('#post_subtask_button').click(function() {
         var url = '';
         if (flag) {
-            url = '/subtask/update';
+            url = '/subtask/update/'+id;
         } else {
             url = '/subtask/create';
         }
