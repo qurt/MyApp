@@ -6,6 +6,22 @@ $(document).ready(function() {
 
 		$.post('/subtasks', { id: val_id, check: val_check});		
 	});
+
+    var flag=false;
+    $('div.btn-danger').click(function() {
+        var id = $(this).attr('id');
+        $.ajax({
+            url: 'subtasks/destroy',
+            type: 'GET',
+            data: {'id': id},
+            dataType: 'html',
+            success: function() {
+                $(this).parent().remove()
+            }
+        });
+    });
+
+
 });
 function update_stages(project_id) {
     $.ajax({
