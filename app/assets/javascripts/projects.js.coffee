@@ -11,7 +11,7 @@ $(document).ready ->
 
   $('div.btn-warning').click ->
     id = $(this).attr('id')
-    $('add_stage_form').show()
+    $('.add_stage_form').show()
     $('#add_stage_field').val($(this).parent.find('label').html)
     flag = true
 
