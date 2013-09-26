@@ -1,11 +1,4 @@
 $(document).ready(function() {
-	$('.btn-success').click(function() {
-		$('.subtask_item_box').append('<div class="subtask_item"><input id="subtask_title_" class="form-control" name="subtask_title[]" type="text"></div><div style="clear: both"></div>');
-	});
-	$('.btn-danger').click(function() {
-		$(this).parent().remove();
-	});
-
 	$('#subtask').change(function() {
 		var post = null;
 		var val_id = $(this).attr('value');
@@ -13,6 +6,46 @@ $(document).ready(function() {
 
 		$.post('/subtasks', { id: val_id, check: val_check});		
 	});
+
+    var flag=false;
+    $('div.btn-danger').click(function() {
+        var id = $(this).attr('id');
+        $.ajax({
+            url: 'subtasks/destroy',
+            type: 'GET',
+            data: {'id': id},
+            dataType: 'html',
+            success: function() {
+                $(this).parent().remove()
+            }
+        });
+    });
+    $('div.btn-warning').click(function() {
+        var id = $(this).attr('id');
+        $('.add_subtask_form').show();
+        $('#add_subtask_field').val($(this).parent().find('label').html);
+        flag = true;
+    });
+    $('#add_subtask_button').click(function() {
+        $('.add_subtask_form').show();
+    });
+    $('#post_subtask_button').click(function() {
+        var url = '';
+        if (flag) {
+            url = '/subtask/update';
+        } else {
+            url = '/subtask/create';
+        }
+        $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'html',
+            success: function() {
+                $('#add_subtask_field').val('');
+                $('.add_subtask_form').hide();
+            }
+        });
+    });
 });
 function update_stages(project_id) {
     $.ajax({
