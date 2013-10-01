@@ -11,13 +11,14 @@ $(document).ready(function() {
     var id = 0;
     $('div.btn-danger').click(function() {
         id = $(this).attr('id');
+        var subtask = $(this).parent();
         $.ajax({
             url: '/subtasks/destroy',
             type: 'GET',
             data: {'id': id},
             dataType: 'html',
             success: function() {
-                $(this).parent().remove()
+                $(subtask).remove()
             }
         });
     });

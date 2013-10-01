@@ -44,12 +44,12 @@ class SubtasksController < ApplicationController
       format.json { render json: @subtask.errors, status: :unprocessable_entity }
     end
   end
-
+=end
   def destroy
     @subtask = Subtask.find(params[:id])
     @subtask.destroy
 
     head :no_content
   end
-=end
+
 end

@@ -13,7 +13,7 @@ MyApp::Application.routes.draw do
   get '/refresh', to: 'feed#refresh'
   get '/render_task', to: 'feed#render_task'
   post 'subtasks', to: 'subtasks#index'
-  get '/subtask/destroy/', to: 'subtasks#destroy'
+  get '/subtasks/destroy/', to: 'subtasks#destroy'
   post 'subtask/create', to: 'subtasks#create'
   post 'subtask/update/:id', to: 'subtasks#update'
   get '/tasks/new/:project_id', to: 'tasks#new'
