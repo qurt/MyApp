@@ -27,9 +27,6 @@ $(document).ready(function() {
         $('#add_subtask_field').val($(this).parent().find('label').html);
         flag = true;
     });
-    $('#add_subtask_button').click(function() {
-        $('.add_subtask_form').show();
-    });
     $('#post_subtask_button').click(function() {
         var url = '';
         if (flag) {
@@ -43,7 +40,7 @@ $(document).ready(function() {
             dataType: 'html',
             success: function() {
                 $('#add_subtask_field').val('');
-                $('.add_subtask_form').hide();
+                $('#myModal').modal('hide');
             }
         });
     });

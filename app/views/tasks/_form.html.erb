@@ -69,12 +69,26 @@
             <div style="clear:both;"></div>
           <% end %>
         <% end %>
-        <div class="btn btn btn-default" style="margin-top:10px">Добавить подзадачу</div>
+        <a data-toggle="modal" href="#myModal" class="btn btn-default btn-lg">Добавить подзадачу</a>
       </div>
-      <div class="add_subtask_form">
-        <input id="add_subtask_field" type="text" name="subtask['title']" placeholder="Название">
-        <div class="btn btn-success" id="post_subtask_button">Создать</div>
+
+      <div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Добавить подзадачу</h4>
+            </div>
+            <div class="modal-body">
+              <input id="add_subtask_field" type="text" name="subtask['title']" placeholder="Название">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Создать</button>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
   <div class="actions">
