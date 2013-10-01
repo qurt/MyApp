@@ -21,15 +21,20 @@ class SubtasksController < ApplicationController
   end
 
   def create
-    @subtask = Subtask.new(params[:stage])
+    @subtask = Subtask.new
+    @subtask.title = params[:title]
+    @subtask.task_id = params[:task_id]
 
-    if @subtask.save
-      head :no_content
-    else
-      format.json { render json: @subtask.errors, status: :unprocessable_entity }
+    respond_to do |format|
+      if @subtask.save
+        format.json { head :no_content }
+      else
+        format.json { render json: @subtask.errors, status: :unprocessable_entity }
+      end
     end
   end
 
+=begin
   def update
     @subtask = Subtask.find(params[:id])
 
@@ -46,4 +51,5 @@ class SubtasksController < ApplicationController
 
     head :no_content
   end
+=end
 end

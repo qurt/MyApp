@@ -34,12 +34,17 @@ $(document).ready(function() {
         } else {
             url = '/subtask/create';
         }
+        var title = $('#add_subtask_field').val();
+        var task_id = $('#task_id').val();
+
+        var data = 'task_id='+task_id+'&title='+title;
+        console.log(data);
         $.ajax({
             url: url,
             type: 'POST',
+            data: data,
             dataType: 'html',
             success: function() {
-                $('#add_subtask_field').val('');
                 $('#myModal').modal('hide');
             }
         });

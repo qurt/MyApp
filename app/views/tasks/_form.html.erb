@@ -63,7 +63,7 @@
           <% @task.subtasks.each do |subtask| %>
             <div class="subtask_item_<%= subtask.id %>">
               <%= label_tag('subtask_title', subtask.title) %>
-              <div class="btn btn-warning" id="<%= stage.id %>">Редактировать</div>
+              <div class="btn btn-warning" id="<%= subtask.id %>">Редактировать</div>
               <div class="btn btn-danger" id="<%= subtask.id %>">Удалить</div>
             </div>
             <div style="clear:both;"></div>
@@ -81,9 +81,10 @@
             </div>
             <div class="modal-body">
               <input id="add_subtask_field" type="text" name="subtask['title']" placeholder="Название">
+              <input id="task_id" type="hidden" value="<%=@task.id%>">
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Создать</button>
+              <button type="button" class="btn btn-primary" id="post_subtask_button">Создать</button>
             </div>
           </div>
         </div>
