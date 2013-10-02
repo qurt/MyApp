@@ -41,6 +41,7 @@ class TasksController < ApplicationController
   def edit
     @task = Task.find(params[:id])
     @users = @task.project.users
+    @stages = Stage.all
   end
 
   # POST /tasks

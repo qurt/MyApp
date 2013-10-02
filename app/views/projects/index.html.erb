@@ -1,17 +1,27 @@
 <div class="row grid"><%= link_to 'Новый проект', new_project_path, class: 'btn btn-success' %></div>
+
 <div class="row">
-  <div class="container">
-    <table class="table table-hover">
-      <% @projects.each do |project| %>
-        <tr>
-          <td><%= link_to project.name, project %> | Выполнено: <%=inactiveTaskCount(project.id)%> из <%=TaskCount(project.id)%></td>
-          <td class="text-center">
-            <% if project.owner_id == @user_id %>
-              <%= link_to 'Редактировать', edit_project_path(project), class: 'btn btn-warning' %> <%= link_to 'Удалить', project, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </table>
-    </div>
+  <% @projects.each do |project| %>
+      <div class="row">
+        <div class="col-lg-12 alert alert-primary">
+          <%= link_to project.name, project, 'style' => 'margin-right: 15px;' %>
+          <% if project.owner_id == @user_id %>
+              <%= link_to edit_project_path(project), 'data-original-title' => 'Редактировать', 'data-toggle' => 'tooltip' do %>
+                  <span class="glyphicon glyphicon-edit"></span>
+              <% end %>
+          <% end %>
+          <div class="pull-right">Выполнено: <%=inactiveTaskCount(project.id)%> из <%=TaskCount(project.id)%></div>
+        </div>
+        <% project.stages.each do |stage| %>
+          <div class="col-lg-11 col-lg-offset-1 alert alert-info">
+            <%= stage.title %>
+          </div>
+          <% stage.tasks.each do |task| %>
+            <div class="col-lg-10 col-lg-offset-2 well well-sm">
+              <%= task.title %>
+            </div>
+          <% end %>
+        <% end %>
+     </div>
+  <% end %>
 </div>

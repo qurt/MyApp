@@ -11,5 +11,25 @@
       color: #fff;
     }
   }
+  .add_stage_form {
+    display: none;
+  }
+}
+//Index
+.alert-primary {
+  color: #fff;
+  background-color: #428bca;
+  border-color: #428bca;
+
+  a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline;
+  }
 }
 

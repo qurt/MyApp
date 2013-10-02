@@ -7,7 +7,7 @@
 <div class="col-lg-3">
   <div class="panel panel-danger">
     <div class="panel-heading">Просроченные задачи</div>
-    <ul class="list-group">
+    <ul id="last_date" class="list-group">
         <% @list_days[3].each do |item| %>
           <% if item.status == 1 %>
               <% status = 'label-warning' %>
@@ -25,7 +25,7 @@
   <div class="panel panel-primary">
     <div class="panel-heading">Сегодня</div>
     <% if @list_days[0].count > 0 %>
-        <ul class="list-group">
+        <ul id="today_date" class="list-group">
       <% @list_days[0].each do |item| %>
               <% if item.status == 1 %>
                   <% status = 'label-warning' %>
@@ -46,7 +46,7 @@
   <div class="panel panel-primary">
     <div class="panel-heading">Завтра</div>
     <% if @list_days[1].count > 0 %>
-        <ul class="list-group">
+        <ul id="tomorrow_date" class="list-group">
         <% @list_days[1].each do |item| %>
               <% if item.status == 1 %>
                   <% status = 'label-warning' %>
@@ -66,7 +66,7 @@
 <div class="col-lg-3">
   <div class="panel panel-info">
     <div class="panel-heading">Ближайшие задачи</div>
-    <ul class="list-group">
+    <ul id="far_date" class="list-group">
     <% @list_days[2].each do |item| %>
           <% if item.status == 1 %>
               <% status = 'label-warning' %>
