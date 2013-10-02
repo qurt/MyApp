@@ -71,11 +71,6 @@ ActiveRecord::Schema.define(:version => 20130815153745) do
     t.integer  "group_id",                    :default => 0
   end
 
-  create_table "tasks_users", :id => false, :force => true do |t|
-    t.integer "user_id"
-    t.integer "task_id"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "password_digest"
