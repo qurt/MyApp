@@ -63,8 +63,9 @@
           <% @task.subtasks.each do |subtask| %>
             <div class="subtask_item_<%= subtask.id %>">
               <%= label_tag('subtask_title', subtask.title) %>
-              <div class="btn btn-warning" id="<%= subtask.id %>">Редактировать</div>
-              <div class="btn btn-danger" id="<%= subtask.id %>">Удалить</div>
+              <!-- TODO Добавить всплывающие подсказки -->
+              <span class="glyphicon glyphicon-edit btn-edit" id="<%= subtask.id %>"></span>
+              <span class="glyphicon glyphicon-trash btn-delete" id="<%= subtask.id %>"></span>
             </div>
             <div style="clear:both;"></div>
           <% end %>

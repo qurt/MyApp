@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     var flag=false;
     var id = 0;
-    $('div.btn-danger').click(function() {
+    $('span.btn-delete').click(function() {
         id = $(this).attr('id');
         var subtask = $(this).parent();
         $.ajax({
@@ -22,7 +22,7 @@ $(document).ready(function() {
             }
         });
     });
-    $('div.btn-warning').click(function() {
+    $('span.btn-edit').click(function() {
         id = $(this).attr('id');
         $.get('/subtask/get_subtask', {id: id}, function(data) {
             console.log(data);
