@@ -24,8 +24,11 @@ $(document).ready(function() {
     });
     $('div.btn-warning').click(function() {
         id = $(this).attr('id');
-        $('.add_subtask_form').show();
-        $('#add_subtask_field').val($(this).parent().find('label').html);
+        $.get('/subtask/get_subtask', {id: id}, function(data) {
+            console.log(data);
+            $('#myEditModal').find('.modal-content').html(data);
+            $('#myEditModal').modal('show');
+        });
         flag = true;
     });
     $('#post_subtask_button').click(function() {
@@ -39,7 +42,6 @@ $(document).ready(function() {
         var task_id = $('#task_id').val();
 
         var data = 'task_id='+task_id+'&title='+title;
-        console.log(data);
         $.ajax({
             url: url,
             type: 'POST',

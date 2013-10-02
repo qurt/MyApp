@@ -20,6 +20,11 @@ class SubtasksController < ApplicationController
 		end
   end
 
+  def get_subtask
+    @item = Subtask.find(params[:id])
+    render :partial => 'tasks/subtask', :object => @item
+  end
+
   def create
     @subtask = Subtask.new
     @subtask.title = params[:title]
@@ -34,7 +39,6 @@ class SubtasksController < ApplicationController
     end
   end
 
-=begin
   def update
     @subtask = Subtask.find(params[:id])
 
@@ -44,7 +48,7 @@ class SubtasksController < ApplicationController
       format.json { render json: @subtask.errors, status: :unprocessable_entity }
     end
   end
-=end
+
   def destroy
     @subtask = Subtask.find(params[:id])
     @subtask.destroy
